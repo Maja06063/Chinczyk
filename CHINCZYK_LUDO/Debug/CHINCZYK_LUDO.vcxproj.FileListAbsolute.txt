@@ -1,0 +1,4 @@
+C:\Users\Majka\OneDrive\Pulpit\STUDIA\SEMESTR 2\Programowanie\Projekt\Chinczyk\CHINCZYK_LUDO\Debug\CHINCZYK_LUDO.vcxprojAssemblyReference.cache
+C:\Users\Majka\OneDrive\Pulpit\STUDIA\SEMESTR 2\Programowanie\Projekt\Chinczyk\CHINCZYK_LUDO\Debug\CHINCZYK_LUDO.exe
+C:\Users\Majka\OneDrive\Pulpit\STUDIA\SEMESTR 2\Programowanie\Projekt\Chinczyk\CHINCZYK_LUDO\Debug\CHINCZYKLUDO.Kontrolowa_widoku.resources
+C:\Users\Majka\OneDrive\Pulpit\STUDIA\SEMESTR 2\Programowanie\Projekt\Chinczyk\CHINCZYK_LUDO\Debug\CHINCZYK_LUDO.vcxproj.GenerateResource.cache
