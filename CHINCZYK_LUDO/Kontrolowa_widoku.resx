@@ -710,18 +710,18 @@
   </data>
   <data name="pionek_c1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQflBBESDA7D16O+AAABjUlEQVRYR8WXPU4DMRBG
-        t0XkWPSEli5X4AIUaaAmEifIJZAoIWeAGgTJARAQYHlftAP2ZhZtEtsUT0rGM+Nv/TO2q7qu/xXX2MVV
-        VQ1hAjNYwLJBv2VT29CL7cI1hpBwAGOYQ90T+Spm4OUMcY0GCUZNMq+TPih25OU2XKMgUMPpJd2GideH
-        cI0ETFsJUjD1+loz4Jjyy9usjUT0BwfNuReYkmhNhJ1rte+y4PqiPn52RyhA28YLyMHYE1Di6415JACD
-        KpznmJNVxTQBOVd+F6sdYQJUxz2nnMxCATpMPKecLEIBOtE8p5wsQwHvrcYSRAJKbkEjmoJb+AoaSxAt
-        wgsoLSDahodQWsBvIWpEPLUcchKX4kbAKZQaBfcw2ocHyC3CP44bEcegmpBThH8hMXA4BxORWsjfVzID
-        x0t4hU9IJaLfpdQgQDekF/iAXYVsdi03CDyCO3gDE7HJ1GjBbfcwMUiwBydwD5oWjUgoxBOjjnd/mrUh
-        4QGcwTU8gqZIo/MMN6CSnvZxmpe6+gZ8ECkNCnFiXQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAAd0SU1FB+UEERIMDsPXo74AAAGNSURBVFhHxZc9TgMxEEa3ReRY9ISWLlfgAhRp
+        oCYSJ8glkCghZ4AaBMkBEBBgeV+0A/ZmFm0S2xRPSsYz42/9M7aruq7/FdfYxVVVDWECM1jAskG/ZVPb
+        0IvtwjWGkHAAY5hD3RP5Kmbg5QxxjQYJRk0yr5M+KHbk5TZcoyBQw+kl3YaJ14dwjQRMWwlSMPX6WjPg
+        mPLL26yNRPQHB825F5iSaE2EnWu177Lg+qI+fnZHKEDbxgvIwdgTUOLrjXkkAIMqnOeYk1XFNAE5V34X
+        qx1hAlTHPaeczEIBOkw8p5wsQgE60TynnCxDAe+txhJEAkpuQSOaglv4ChpLEC3CCygtINqGh1BawG8h
+        akQ8tRxyEpfiRsAplBoF9zDahwfILcI/jhsRx6CakFOEfyExcDgHE5FayN9XMgPHS3iFT0glot+l1CBA
+        N6QX+IBdhWx2LTcIPII7eAMTscnUaMFt9zAxSLAHJ3APmhaNSCjEE6OOd3+atSHhAZzBNTyCpkij8ww3
+        oJKe9nGal7r6BnwQKQ0KcWJdAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pionek_c2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAAAd0SU1FB+UEERIMDsPXo74AAAGNSURBVFhHxZc9TgMxEEa3ReRY9ISWLlfgAhRp
@@ -734,7 +734,7 @@
         oJKe9nGal7r6BnwQKQ0KcWJdAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pionek_c3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAAAd0SU1FB+UEERIMDsPXo74AAAGNSURBVFhHxZc9TgMxEEa3ReRY9ISWLlfgAhRp
@@ -747,7 +747,7 @@
         oJKe9nGal7r6BnwQKQ0KcWJdAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pionek_c4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAAAd0SU1FB+UEERIMDsPXo74AAAGNSURBVFhHxZc9TgMxEEa3ReRY9ISWLlfgAhRp
