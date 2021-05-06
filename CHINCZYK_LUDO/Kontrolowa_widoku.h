@@ -47,6 +47,10 @@ namespace CHINCZYKLUDO {
 	private: System::Windows::Forms::PictureBox^ pionek_c2;
 	private: System::Windows::Forms::PictureBox^ pionek_c3;
 	private: System::Windows::Forms::PictureBox^ pionek_c4;
+	private: System::Windows::Forms::PictureBox^ pionek_zi1;
+	private: System::Windows::Forms::PictureBox^ pionek_zi2;
+	private: System::Windows::Forms::PictureBox^ pionek_zi3;
+	private: System::Windows::Forms::PictureBox^ pionek_zi4;
 
 
 
@@ -60,7 +64,7 @@ namespace CHINCZYKLUDO {
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -77,11 +81,19 @@ namespace CHINCZYKLUDO {
 			this->pionek_c2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pionek_c3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pionek_c4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pionek_zi1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pionek_zi2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pionek_zi3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pionek_zi4 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->obrazek_planszy))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi4))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// Przycisk_kostka
@@ -118,6 +130,7 @@ namespace CHINCZYKLUDO {
 			// 
 			// pionek_c1
 			// 
+			this->pionek_c1->AccessibleName = L"";
 			this->pionek_c1->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c1.Image")));
 			this->pionek_c1->Location = System::Drawing::Point(64, 574);
@@ -130,6 +143,7 @@ namespace CHINCZYKLUDO {
 			// 
 			// pionek_c2
 			// 
+			this->pionek_c2->AccessibleName = L"";
 			this->pionek_c2->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c2.Image")));
 			this->pionek_c2->Location = System::Drawing::Point(64, 447);
@@ -142,6 +156,7 @@ namespace CHINCZYKLUDO {
 			// 
 			// pionek_c3
 			// 
+			this->pionek_c3->AccessibleName = L"";
 			this->pionek_c3->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c3.Image")));
 			this->pionek_c3->Location = System::Drawing::Point(191, 447);
@@ -154,6 +169,7 @@ namespace CHINCZYKLUDO {
 			// 
 			// pionek_c4
 			// 
+			this->pionek_c4->AccessibleName = L"";
 			this->pionek_c4->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c4.Image")));
 			this->pionek_c4->Location = System::Drawing::Point(191, 574);
@@ -164,11 +180,68 @@ namespace CHINCZYKLUDO {
 			this->pionek_c4->TabIndex = 6;
 			this->pionek_c4->TabStop = false;
 			// 
+			// pionek_zi1
+			// 
+			this->pionek_zi1->AccessibleName = L"";
+			this->pionek_zi1->BackColor = System::Drawing::Color::Transparent;
+			this->pionek_zi1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi1.Image")));
+			this->pionek_zi1->Location = System::Drawing::Point(448, 447);
+			this->pionek_zi1->Margin = System::Windows::Forms::Padding(4);
+			this->pionek_zi1->Name = L"pionek_zi1";
+			this->pionek_zi1->Size = System::Drawing::Size(32, 32);
+			this->pionek_zi1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->pionek_zi1->TabIndex = 7;
+			this->pionek_zi1->TabStop = false;
+			// 
+			// pionek_zi2
+			// 
+			this->pionek_zi2->AccessibleName = L"";
+			this->pionek_zi2->BackColor = System::Drawing::Color::Transparent;
+			this->pionek_zi2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi2.Image")));
+			this->pionek_zi2->Location = System::Drawing::Point(577, 447);
+			this->pionek_zi2->Margin = System::Windows::Forms::Padding(4);
+			this->pionek_zi2->Name = L"pionek_zi2";
+			this->pionek_zi2->Size = System::Drawing::Size(32, 32);
+			this->pionek_zi2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->pionek_zi2->TabIndex = 8;
+			this->pionek_zi2->TabStop = false;
+			// 
+			// pionek_zi3
+			// 
+			this->pionek_zi3->AccessibleName = L"";
+			this->pionek_zi3->BackColor = System::Drawing::Color::Transparent;
+			this->pionek_zi3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi3.Image")));
+			this->pionek_zi3->Location = System::Drawing::Point(448, 574);
+			this->pionek_zi3->Margin = System::Windows::Forms::Padding(4);
+			this->pionek_zi3->Name = L"pionek_zi3";
+			this->pionek_zi3->Size = System::Drawing::Size(32, 32);
+			this->pionek_zi3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->pionek_zi3->TabIndex = 9;
+			this->pionek_zi3->TabStop = false;
+			// 
+			// pionek_zi4
+			// 
+			this->pionek_zi4->AccessibleName = L"";
+			this->pionek_zi4->BackColor = System::Drawing::Color::Transparent;
+			this->pionek_zi4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi4.Image")));
+			this->pionek_zi4->Location = System::Drawing::Point(577, 574);
+			this->pionek_zi4->Margin = System::Windows::Forms::Padding(4);
+			this->pionek_zi4->Name = L"pionek_zi4";
+			this->pionek_zi4->Size = System::Drawing::Size(32, 32);
+			this->pionek_zi4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->pionek_zi4->TabIndex = 10;
+			this->pionek_zi4->TabStop = false;
+			// 
 			// Kontrolowa_widoku
 			// 
+			this->AccessibleName = L"";
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1005, 721);
+			this->Controls->Add(this->pionek_zi4);
+			this->Controls->Add(this->pionek_zi3);
+			this->Controls->Add(this->pionek_zi2);
+			this->Controls->Add(this->pionek_zi1);
 			this->Controls->Add(this->pionek_c4);
 			this->Controls->Add(this->pionek_c3);
 			this->Controls->Add(this->pionek_c2);
@@ -185,14 +258,23 @@ namespace CHINCZYKLUDO {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_zi4))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	
+
+
+		private: void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY);
+
+
+
 	private: void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
-};
+	};
 }
