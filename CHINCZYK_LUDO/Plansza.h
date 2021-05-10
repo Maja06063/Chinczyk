@@ -1,7 +1,15 @@
 #pragma once
-#include"Kostka.h"
-ref class Plansza
+#include <vector>
+#include "Kostka.h"
+#include "Gracz.h"
+
+
+class Plansza
 {
-public: int rzut_k();
+	Gracz gracze[4];
+
+
+
+	public: int rzut_k();
 };
 

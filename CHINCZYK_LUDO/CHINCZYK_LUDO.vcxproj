@@ -134,6 +134,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pionek.h" />
     <ClInclude Include="Plansza.h" />
+    <ClInclude Include="Pole.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     </ClCompile>
     <ClCompile Include="Pionek.cpp" />
     <ClCompile Include="Plansza.cpp" />
+    <ClCompile Include="Pole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

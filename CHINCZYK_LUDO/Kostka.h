@@ -1,6 +1,8 @@
 #pragma once
-ref class Kostka
+
+class Kostka
 {
+
 public:static int rzut();
 
 };

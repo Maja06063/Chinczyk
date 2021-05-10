@@ -1,5 +1,15 @@
 #pragma once
-ref class Gracz
+
+enum class KolorGracza {
+	
+	czerwony,
+	zielony,
+	zolty,
+	niebieski
+};
+
+
+class Gracz
 {
 };
 
