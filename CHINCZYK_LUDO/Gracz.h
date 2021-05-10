@@ -1,7 +1,10 @@
 #pragma once
 
-enum class KolorGracza {
-	
+/// <summary>
+/// 
+/// </summary>
+enum class KolorGracza
+{	
 	czerwony = 0,
 	zielony,
 	zolty,
@@ -10,6 +13,11 @@ enum class KolorGracza {
 };
 
 
+/****************************************************************************************/
+
+/// <summary>
+/// 
+/// </summary>
 class Gracz
 {
 	KolorGracza graczId = KolorGracza::brak;

@@ -8,7 +8,7 @@ using namespace std;
 namespace CHINCZYKLUDO {
 
 	/****************************************************************************************/
-	
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -77,12 +77,34 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// 
 	/// </summary>
+	/// <param name="kolor"></param>
+	/// <returns></returns>
+	String^ Kontrolowa_widoku::KolorNaString(KolorGracza kolor)
+	{
+		switch (kolor)
+		{
+		case KolorGracza::czerwony:		return "czerwony";
+		case KolorGracza::zielony:		return "zielony";
+		case KolorGracza::zolty:		return "¿ó³ty";
+		case KolorGracza::niebieski:	return "niebieski";
+		}
+
+		return "b³¹d";
+	}
+
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
 	void Kontrolowa_widoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		int oczka=plansza->RzutKostki();
+
+		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
+		int oczka = plansza->RzutKostki();
 		tekst_rzut_kostka->Text = oczka.ToString();
+		Przycisk_kostka->Enabled = false;
 	}
 
 	/****************************************************************************************/
@@ -95,5 +117,10 @@ namespace CHINCZYKLUDO {
 	void Kontrolowa_widoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		UstawIkonyPionkow();
+
+		std::cout << "Teraz gracz " << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray() << " niech rzuci kostk¹!\n";
+
+		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
+
 	}
 }

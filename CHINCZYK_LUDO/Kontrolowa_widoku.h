@@ -402,6 +402,7 @@ namespace CHINCZYKLUDO {
 			this->Controls->Add(this->tekst_rzut_kostka);
 			this->Controls->Add(this->Przycisk_kostka);
 			this->Margin = System::Windows::Forms::Padding(2);
+			this->MaximizeBox = false;
 			this->Name = L"Kontrolowa_widoku";
 			this->Text = L"Chiñczyk";
 			this->Load += gcnew System::EventHandler(this, &Kontrolowa_widoku::Kontrolowa_widoku_Load);
@@ -427,13 +428,16 @@ namespace CHINCZYKLUDO {
 
 		}
 #pragma endregion
-
-
+		/*****************************************************************************************************************/
+		/****************************************************************************************************************/
+		/***************************************************************************************************************/
 	private:
 
 		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY);
 
 		void UstawIkonyPionkow();
+
+		String^ KolorNaString(KolorGracza kolor);
 
 
 

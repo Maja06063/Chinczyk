@@ -27,22 +27,22 @@ void Plansza::UstawPola()
 
 		if (i < 4) 
 		{
-			Pionek nowyPionek(KolorGracza::czerwony);
+			Pionek nowyPionek(KolorGracza::czerwony, (i%4)+1 );
 			nowePole.pionkiNaPolu.push_back(nowyPionek);
 		}
 		else if (i < 8)
 		{
-			Pionek nowyPionek(KolorGracza::zielony);
+			Pionek nowyPionek(KolorGracza::zielony, (i % 4) + 1);
 			nowePole.pionkiNaPolu.push_back(nowyPionek);
 		}
 		else if (i < 12)
 		{
-			Pionek nowyPionek(KolorGracza::zolty);
+			Pionek nowyPionek(KolorGracza::zolty, (i % 4) + 1);
 			nowePole.pionkiNaPolu.push_back(nowyPionek);
 		}
 		else if (i < 16)
 		{
-			Pionek nowyPionek(KolorGracza::niebieski);
+			Pionek nowyPionek(KolorGracza::niebieski, (i % 4) + 1);
 			nowePole.pionkiNaPolu.push_back(nowyPionek);
 		}
 
@@ -61,6 +61,8 @@ Plansza::Plansza()
 	UstawGraczy();
 	UstawPola();
 
+	stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
+	kolorAktywnegoGracza = KolorGracza::czerwony;
 }
 
 /****************************************************************************************/

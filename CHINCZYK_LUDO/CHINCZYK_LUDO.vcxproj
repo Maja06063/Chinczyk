@@ -131,6 +131,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Kostka.h" />
+    <ClInclude Include="MaszynaStanów.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pionek.h" />
     <ClInclude Include="Plansza.h" />
