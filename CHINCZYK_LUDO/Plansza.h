@@ -24,5 +24,7 @@ public:
 
 	Plansza();
 
+	bool ruchPionka(KolorGracza kolor, int nr);
+
 	int RzutKostki();
 };

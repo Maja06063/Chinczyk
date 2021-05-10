@@ -94,6 +94,16 @@ namespace CHINCZYKLUDO {
 
 	/****************************************************************************************/
 
+	void Kontrolowa_widoku::SkanujGracza()
+	{
+		Przycisk_kostka->Enabled = true;
+		std::cout << "Teraz gracz " << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray() << " niech rzuci kostka!\n";
+
+		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
+	}
+
+	/****************************************************************************************/
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -102,6 +112,8 @@ namespace CHINCZYKLUDO {
 	void Kontrolowa_widoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
+		std::cout << "Oczekiwanie na wybor pionka\n\n";
+
 		int oczka = plansza->RzutKostki();
 		tekst_rzut_kostka->Text = oczka.ToString();
 		Przycisk_kostka->Enabled = false;
@@ -117,10 +129,6 @@ namespace CHINCZYKLUDO {
 	void Kontrolowa_widoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		UstawIkonyPionkow();
-
-		std::cout << "Teraz gracz " << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray() << " niech rzuci kostk¹!\n";
-
-		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
-
+		SkanujGracza();
 	}
 }

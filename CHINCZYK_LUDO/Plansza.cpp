@@ -75,3 +75,22 @@ int Plansza::RzutKostki()
 {
 	return Kostka::rzut();
 }
+
+/****************************************************************************************/
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="kolor"></param>
+/// <param name=""></param>
+bool Plansza::ruchPionka(KolorGracza kolor, int nr)
+{
+	if (stanPlanszy == MaszynaStanow::oczekiwanieNaWyborPionka && kolorAktywnegoGracza == kolor) {
+
+		kolorAktywnegoGracza = (KolorGracza)((int)kolorAktywnegoGracza + 1);
+		stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
+		return true;
+	}
+
+	return false;
+}
