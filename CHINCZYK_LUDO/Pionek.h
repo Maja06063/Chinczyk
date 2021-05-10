@@ -8,7 +8,7 @@ class Pionek
 
 public:
 
-	Pionek(int poleId);
+	Pionek(int poleId) { this->poleId = poleId;	}
 
 	int zwrocPoleId(void) { return poleId; }
 	

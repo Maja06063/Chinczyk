@@ -2,14 +2,22 @@
 
 enum class KolorGracza {
 	
-	czerwony,
+	czerwony = 0,
 	zielony,
 	zolty,
-	niebieski
+	niebieski,
+	brak
 };
 
 
 class Gracz
 {
-};
+	KolorGracza graczId = KolorGracza::brak;
 
+public:
+
+	void ustawKolor(KolorGracza nowyKolor) { if (graczId != KolorGracza::brak) graczId = nowyKolor; }
+
+	inline KolorGracza zwrocKolor() { return graczId; }
+
+};

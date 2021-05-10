@@ -4,6 +4,7 @@ using namespace std;
 
 
 namespace CHINCZYKLUDO {
+
 	void Kontrolowa_widoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY)
 	{
 		ikonaPionka->Location = System::Drawing::Point(poleX * 32, PoleY * 35);

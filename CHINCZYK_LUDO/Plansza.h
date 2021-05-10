@@ -8,8 +8,12 @@ class Plansza
 {
 	Gracz gracze[4];
 
+	void ustawGraczy();
 
+public: 
 
-	public: int rzut_k();
+	Plansza();
+
+	int rzut_k();
 };
 
