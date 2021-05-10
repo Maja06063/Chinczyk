@@ -1,19 +1,21 @@
 #pragma once
-#include <vector>
 #include "Kostka.h"
 #include "Gracz.h"
-
+#include "Pole.h"
 
 class Plansza
 {
 	Gracz gracze[4];
 
-	void ustawGraczy();
+	std::vector<Pole> polaPlanszy;
+
+	void UstawGraczy();
+
+	void UstawPola();
 
 public: 
 
 	Plansza();
 
-	int rzut_k();
+	int RzutKostki();
 };
-

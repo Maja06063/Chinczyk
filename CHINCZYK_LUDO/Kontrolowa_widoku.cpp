@@ -2,21 +2,31 @@
 #include "Kontrolowa_widoku.h"
 using namespace std;
 
-
+/// <summary>
+/// 
+/// </summary>
 namespace CHINCZYKLUDO {
 
+	/****************************************************************************************/
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="ikonaPionka"></param>
+	/// <param name="poleX"></param>
+	/// <param name="PoleY"></param>
 	void Kontrolowa_widoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY)
 	{
 		ikonaPionka->Location = System::Drawing::Point(poleX * 32, PoleY * 35);
 	}
-	void Kontrolowa_widoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		int oczka=plansza->rzut_k();
-		tekst_rzut_kostka->Text = oczka.ToString();
-	}
 
-	void Kontrolowa_widoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
+	/****************************************************************************************/
 
+	/// <summary>
+	/// 
+	/// </summary>
+	void Kontrolowa_widoku::UstawIkonyPionkow()
+	{
 		// Ustawienie ikon pionków czerwonych:
 		obrazek_planszy->Controls->Add(pionek_c1);
 		obrazek_planszy->Controls->Add(pionek_c2);
@@ -60,5 +70,30 @@ namespace CHINCZYKLUDO {
 		UstawPolozenieIkonyPionka(pionek_n2, 4, 1);
 		UstawPolozenieIkonyPionka(pionek_n3, 1, 4);
 		UstawPolozenieIkonyPionka(pionek_n4, 4, 4);
+	}
+
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	void Kontrolowa_widoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		int oczka=plansza->RzutKostki();
+		tekst_rzut_kostka->Text = oczka.ToString();
+	}
+
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	void Kontrolowa_widoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		UstawIkonyPionkow();
 	}
 }

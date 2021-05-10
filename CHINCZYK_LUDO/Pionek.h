@@ -4,12 +4,14 @@
 class Pionek
 {
 	KolorGracza graczId;
-	int poleId;
 
 public:
 
-	Pionek(int poleId) { this->poleId = poleId;	}
+	bool mozliwoscRuchu = false;
 
-	int zwrocPoleId(void) { return poleId; }
+	Pionek(KolorGracza graczId) { this->graczId = graczId;	}
+
+	inline const KolorGracza zwrocKolorGracza() { return graczId; }
+
 	
 };

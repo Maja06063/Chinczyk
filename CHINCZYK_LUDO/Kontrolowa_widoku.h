@@ -429,12 +429,16 @@ namespace CHINCZYKLUDO {
 #pragma endregion
 
 
-		private: void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY);
+	private:
+
+		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY);
+
+		void UstawIkonyPionkow();
 
 
 
-	private: void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
+		void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
 
-	private: void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
+		void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
 	};
 }
