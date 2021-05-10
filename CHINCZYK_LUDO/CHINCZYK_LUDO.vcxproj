@@ -126,6 +126,8 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Baza.h" />
+    <ClInclude Include="Domek.h" />
     <ClInclude Include="Gracz.h" />
     <ClInclude Include="Kontrolowa_widoku.h">
       <FileType>CppForm</FileType>
@@ -136,10 +138,13 @@
     <ClInclude Include="Pionek.h" />
     <ClInclude Include="Plansza.h" />
     <ClInclude Include="Pole.h" />
+    <ClInclude Include="PoleSpecjalne.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Baza.cpp" />
+    <ClCompile Include="Domek.cpp" />
     <ClCompile Include="Gracz.cpp" />
     <ClCompile Include="Kostka.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -153,6 +158,7 @@
     <ClCompile Include="Pionek.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Pole.cpp" />
+    <ClCompile Include="PoleSpecjalne.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

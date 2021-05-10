@@ -87,7 +87,7 @@ bool Plansza::ruchPionka(KolorGracza kolor, int nr)
 {
 	if (stanPlanszy == MaszynaStanow::oczekiwanieNaWyborPionka && kolorAktywnegoGracza == kolor) {
 
-		kolorAktywnegoGracza = (KolorGracza)((int)kolorAktywnegoGracza + 1);
+		kolorAktywnegoGracza = (KolorGracza)(((int)kolorAktywnegoGracza + 1)%4);
 		stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
 		return true;
 	}

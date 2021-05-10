@@ -327,6 +327,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n1->TabIndex = 15;
 			this->pionek_n1->TabStop = false;
+			this->pionek_n1->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n1_Click);
 			// 
 			// pionek_n2
 			// 
@@ -339,6 +340,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n2->TabIndex = 16;
 			this->pionek_n2->TabStop = false;
+			this->pionek_n2->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n2_Click);
 			// 
 			// pionek_n3
 			// 
@@ -351,6 +353,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n3->TabIndex = 17;
 			this->pionek_n3->TabStop = false;
+			this->pionek_n3->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n3_Click);
 			// 
 			// pionek_n4
 			// 
@@ -363,6 +366,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n4->TabIndex = 18;
 			this->pionek_n4->TabStop = false;
+			this->pionek_n4->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n4_Click);
 			// 
 			// aktualnyGraczTytul
 			// 
@@ -461,6 +465,8 @@ namespace CHINCZYKLUDO {
 		
 
 
+		/***************************************************************************************************************/
+		
 		// Obs³uga klikniêæ ikon pionków:
 		void pionek_c1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 1)) SkanujGracza(); }
 		void pionek_c2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 2)) SkanujGracza(); }
@@ -477,6 +483,10 @@ namespace CHINCZYKLUDO {
 		void pionek_zt3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 3)) SkanujGracza(); }
 		void pionek_zt4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 4)) SkanujGracza(); }
 
+		void pionek_n1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 1)) SkanujGracza(); }
+		void pionek_n2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 2)) SkanujGracza(); }
+		void pionek_n3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 3)) SkanujGracza(); }
+		void pionek_n4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 4)) SkanujGracza(); }
 
 };
 }
