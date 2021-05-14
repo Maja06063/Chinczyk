@@ -128,10 +128,10 @@ namespace CHINCZYKLUDO {
 			// 
 			this->Przycisk_kostka->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->Przycisk_kostka->Location = System::Drawing::Point(536, 211);
-			this->Przycisk_kostka->Margin = System::Windows::Forms::Padding(2);
+			this->Przycisk_kostka->Location = System::Drawing::Point(715, 260);
+			this->Przycisk_kostka->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Przycisk_kostka->Name = L"Przycisk_kostka";
-			this->Przycisk_kostka->Size = System::Drawing::Size(116, 31);
+			this->Przycisk_kostka->Size = System::Drawing::Size(155, 38);
 			this->Przycisk_kostka->TabIndex = 0;
 			this->Przycisk_kostka->Text = L"Rzuæ kostk¹";
 			this->Przycisk_kostka->UseVisualStyleBackColor = true;
@@ -142,10 +142,9 @@ namespace CHINCZYKLUDO {
 			this->tekst_rzut_kostka->AutoSize = true;
 			this->tekst_rzut_kostka->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->tekst_rzut_kostka->Location = System::Drawing::Point(656, 216);
-			this->tekst_rzut_kostka->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->tekst_rzut_kostka->Location = System::Drawing::Point(875, 266);
 			this->tekst_rzut_kostka->Name = L"tekst_rzut_kostka";
-			this->tekst_rzut_kostka->Size = System::Drawing::Size(82, 20);
+			this->tekst_rzut_kostka->Size = System::Drawing::Size(100, 25);
 			this->tekst_rzut_kostka->TabIndex = 1;
 			this->tekst_rzut_kostka->Text = L"Brak rzutu";
 			// 
@@ -153,9 +152,10 @@ namespace CHINCZYKLUDO {
 			// 
 			this->obrazek_planszy->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"obrazek_planszy.Image")));
 			this->obrazek_planszy->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"obrazek_planszy.InitialImage")));
-			this->obrazek_planszy->Location = System::Drawing::Point(12, 12);
+			this->obrazek_planszy->Location = System::Drawing::Point(16, 15);
+			this->obrazek_planszy->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->obrazek_planszy->Name = L"obrazek_planszy";
-			this->obrazek_planszy->Size = System::Drawing::Size(480, 520);
+			this->obrazek_planszy->Size = System::Drawing::Size(640, 640);
 			this->obrazek_planszy->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->obrazek_planszy->TabIndex = 2;
 			this->obrazek_planszy->TabStop = false;
@@ -165,7 +165,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_c1->AccessibleName = L"";
 			this->pionek_c1->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c1.Image")));
-			this->pionek_c1->Location = System::Drawing::Point(48, 466);
+			this->pionek_c1->Location = System::Drawing::Point(64, 574);
+			this->pionek_c1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_c1->Name = L"pionek_c1";
 			this->pionek_c1->Size = System::Drawing::Size(32, 32);
 			this->pionek_c1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -178,7 +179,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_c2->AccessibleName = L"";
 			this->pionek_c2->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c2.Image")));
-			this->pionek_c2->Location = System::Drawing::Point(48, 363);
+			this->pionek_c2->Location = System::Drawing::Point(64, 447);
+			this->pionek_c2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_c2->Name = L"pionek_c2";
 			this->pionek_c2->Size = System::Drawing::Size(32, 32);
 			this->pionek_c2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -191,7 +193,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_c3->AccessibleName = L"";
 			this->pionek_c3->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c3.Image")));
-			this->pionek_c3->Location = System::Drawing::Point(143, 363);
+			this->pionek_c3->Location = System::Drawing::Point(191, 447);
+			this->pionek_c3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_c3->Name = L"pionek_c3";
 			this->pionek_c3->Size = System::Drawing::Size(32, 32);
 			this->pionek_c3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -204,7 +207,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_c4->AccessibleName = L"";
 			this->pionek_c4->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_c4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_c4.Image")));
-			this->pionek_c4->Location = System::Drawing::Point(143, 466);
+			this->pionek_c4->Location = System::Drawing::Point(191, 574);
+			this->pionek_c4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_c4->Name = L"pionek_c4";
 			this->pionek_c4->Size = System::Drawing::Size(32, 32);
 			this->pionek_c4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -217,7 +221,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi1->AccessibleName = L"";
 			this->pionek_zi1->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zi1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi1.Image")));
-			this->pionek_zi1->Location = System::Drawing::Point(336, 363);
+			this->pionek_zi1->Location = System::Drawing::Point(448, 447);
+			this->pionek_zi1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zi1->Name = L"pionek_zi1";
 			this->pionek_zi1->Size = System::Drawing::Size(32, 32);
 			this->pionek_zi1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -230,7 +235,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi2->AccessibleName = L"";
 			this->pionek_zi2->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zi2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi2.Image")));
-			this->pionek_zi2->Location = System::Drawing::Point(433, 363);
+			this->pionek_zi2->Location = System::Drawing::Point(577, 447);
+			this->pionek_zi2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zi2->Name = L"pionek_zi2";
 			this->pionek_zi2->Size = System::Drawing::Size(32, 32);
 			this->pionek_zi2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -243,7 +249,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi3->AccessibleName = L"";
 			this->pionek_zi3->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zi3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi3.Image")));
-			this->pionek_zi3->Location = System::Drawing::Point(336, 466);
+			this->pionek_zi3->Location = System::Drawing::Point(448, 574);
+			this->pionek_zi3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zi3->Name = L"pionek_zi3";
 			this->pionek_zi3->Size = System::Drawing::Size(32, 32);
 			this->pionek_zi3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -256,7 +263,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi4->AccessibleName = L"";
 			this->pionek_zi4->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zi4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zi4.Image")));
-			this->pionek_zi4->Location = System::Drawing::Point(433, 466);
+			this->pionek_zi4->Location = System::Drawing::Point(577, 574);
+			this->pionek_zi4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zi4->Name = L"pionek_zi4";
 			this->pionek_zi4->Size = System::Drawing::Size(32, 32);
 			this->pionek_zi4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -269,7 +277,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt1->AccessibleName = L"";
 			this->pionek_zt1->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zt1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zt1.Image")));
-			this->pionek_zt1->Location = System::Drawing::Point(336, 51);
+			this->pionek_zt1->Location = System::Drawing::Point(448, 63);
+			this->pionek_zt1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zt1->Name = L"pionek_zt1";
 			this->pionek_zt1->Size = System::Drawing::Size(32, 32);
 			this->pionek_zt1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -282,7 +291,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt2->AccessibleName = L"";
 			this->pionek_zt2->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zt2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zt2.Image")));
-			this->pionek_zt2->Location = System::Drawing::Point(433, 51);
+			this->pionek_zt2->Location = System::Drawing::Point(577, 63);
+			this->pionek_zt2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zt2->Name = L"pionek_zt2";
 			this->pionek_zt2->Size = System::Drawing::Size(32, 32);
 			this->pionek_zt2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -295,7 +305,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt3->AccessibleName = L"";
 			this->pionek_zt3->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zt3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zt3.Image")));
-			this->pionek_zt3->Location = System::Drawing::Point(336, 155);
+			this->pionek_zt3->Location = System::Drawing::Point(448, 191);
+			this->pionek_zt3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zt3->Name = L"pionek_zt3";
 			this->pionek_zt3->Size = System::Drawing::Size(32, 32);
 			this->pionek_zt3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -308,7 +319,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt4->AccessibleName = L"";
 			this->pionek_zt4->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_zt4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_zt4.Image")));
-			this->pionek_zt4->Location = System::Drawing::Point(433, 155);
+			this->pionek_zt4->Location = System::Drawing::Point(577, 191);
+			this->pionek_zt4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_zt4->Name = L"pionek_zt4";
 			this->pionek_zt4->Size = System::Drawing::Size(32, 32);
 			this->pionek_zt4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -321,7 +333,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_n1->AccessibleName = L"";
 			this->pionek_n1->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_n1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_n1.Image")));
-			this->pionek_n1->Location = System::Drawing::Point(48, 51);
+			this->pionek_n1->Location = System::Drawing::Point(64, 63);
+			this->pionek_n1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_n1->Name = L"pionek_n1";
 			this->pionek_n1->Size = System::Drawing::Size(32, 32);
 			this->pionek_n1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -334,7 +347,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_n2->AccessibleName = L"";
 			this->pionek_n2->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_n2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_n2.Image")));
-			this->pionek_n2->Location = System::Drawing::Point(143, 51);
+			this->pionek_n2->Location = System::Drawing::Point(191, 63);
+			this->pionek_n2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_n2->Name = L"pionek_n2";
 			this->pionek_n2->Size = System::Drawing::Size(32, 32);
 			this->pionek_n2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -347,7 +361,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_n3->AccessibleName = L"";
 			this->pionek_n3->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_n3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_n3.Image")));
-			this->pionek_n3->Location = System::Drawing::Point(48, 155);
+			this->pionek_n3->Location = System::Drawing::Point(64, 191);
+			this->pionek_n3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_n3->Name = L"pionek_n3";
 			this->pionek_n3->Size = System::Drawing::Size(32, 32);
 			this->pionek_n3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -360,7 +375,8 @@ namespace CHINCZYKLUDO {
 			this->pionek_n4->AccessibleName = L"";
 			this->pionek_n4->BackColor = System::Drawing::Color::Transparent;
 			this->pionek_n4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pionek_n4.Image")));
-			this->pionek_n4->Location = System::Drawing::Point(143, 155);
+			this->pionek_n4->Location = System::Drawing::Point(191, 191);
+			this->pionek_n4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pionek_n4->Name = L"pionek_n4";
 			this->pionek_n4->Size = System::Drawing::Size(32, 32);
 			this->pionek_n4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -373,9 +389,10 @@ namespace CHINCZYKLUDO {
 			this->aktualnyGraczTytul->AutoSize = true;
 			this->aktualnyGraczTytul->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->aktualnyGraczTytul->Location = System::Drawing::Point(556, 78);
+			this->aktualnyGraczTytul->Location = System::Drawing::Point(741, 96);
+			this->aktualnyGraczTytul->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->aktualnyGraczTytul->Name = L"aktualnyGraczTytul";
-			this->aktualnyGraczTytul->Size = System::Drawing::Size(147, 25);
+			this->aktualnyGraczTytul->Size = System::Drawing::Size(187, 29);
 			this->aktualnyGraczTytul->TabIndex = 19;
 			this->aktualnyGraczTytul->Text = L"Aktualny gracz:";
 			// 
@@ -384,18 +401,20 @@ namespace CHINCZYKLUDO {
 			this->aktualnyGraczTekst->AutoSize = true;
 			this->aktualnyGraczTekst->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->aktualnyGraczTekst->Location = System::Drawing::Point(588, 114);
+			this->aktualnyGraczTekst->Location = System::Drawing::Point(784, 140);
+			this->aktualnyGraczTekst->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->aktualnyGraczTekst->Name = L"aktualnyGraczTekst";
-			this->aktualnyGraczTekst->Size = System::Drawing::Size(64, 25);
+			this->aktualnyGraczTekst->Size = System::Drawing::Size(81, 29);
 			this->aktualnyGraczTekst->TabIndex = 20;
 			this->aktualnyGraczTekst->Text = L"label2";
 			// 
 			// Kontrolowa_widoku
 			// 
 			this->AccessibleName = L"";
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(754, 586);
+			this->AutoSize = true;
+			this->ClientSize = System::Drawing::Size(1005, 721);
 			this->Controls->Add(this->aktualnyGraczTekst);
 			this->Controls->Add(this->aktualnyGraczTytul);
 			this->Controls->Add(this->pionek_n4);
@@ -417,7 +436,7 @@ namespace CHINCZYKLUDO {
 			this->Controls->Add(this->obrazek_planszy);
 			this->Controls->Add(this->tekst_rzut_kostka);
 			this->Controls->Add(this->Przycisk_kostka);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->MaximizeBox = false;
 			this->Name = L"Kontrolowa_widoku";
 			this->Text = L"Chiñczyk";
