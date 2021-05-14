@@ -4,6 +4,7 @@
 class Domek :
     public PoleSpecjalne
 {
+public:
 
 };
 

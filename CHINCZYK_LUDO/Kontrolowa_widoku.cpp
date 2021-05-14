@@ -15,9 +15,12 @@ namespace CHINCZYKLUDO {
 	/// <param name="ikonaPionka"></param>
 	/// <param name="poleX"></param>
 	/// <param name="PoleY"></param>
-	void Kontrolowa_widoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY)
+	void Kontrolowa_widoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole)
 	{
-		ikonaPionka->Location = System::Drawing::Point(poleX * 32, PoleY * 35);
+		int x = pole.pozX();
+		int y = pole.pozY();
+
+		ikonaPionka->Location = System::Drawing::Point(x * 32, y * 35);
 	}
 
 	/****************************************************************************************/
@@ -33,21 +36,11 @@ namespace CHINCZYKLUDO {
 		obrazek_planszy->Controls->Add(pionek_c3);
 		obrazek_planszy->Controls->Add(pionek_c4);
 
-		UstawPolozenieIkonyPionka(pionek_c1, 1, 10);
-		UstawPolozenieIkonyPionka(pionek_c2, 4, 10);
-		UstawPolozenieIkonyPionka(pionek_c3, 1, 13);
-		UstawPolozenieIkonyPionka(pionek_c4, 4, 13);
-
 		// Ustawienie ikon pionków zielonych:
 		obrazek_planszy->Controls->Add(pionek_zi1);
 		obrazek_planszy->Controls->Add(pionek_zi2);
 		obrazek_planszy->Controls->Add(pionek_zi3);
 		obrazek_planszy->Controls->Add(pionek_zi4);
-
-		UstawPolozenieIkonyPionka(pionek_zi1, 10, 10);
-		UstawPolozenieIkonyPionka(pionek_zi2, 13, 10);
-		UstawPolozenieIkonyPionka(pionek_zi3, 10, 13);
-		UstawPolozenieIkonyPionka(pionek_zi4, 13, 13);
 
 		// Ustawienie ikon pionków ¿ó³tych:
 		obrazek_planszy->Controls->Add(pionek_zt1);
@@ -55,21 +48,45 @@ namespace CHINCZYKLUDO {
 		obrazek_planszy->Controls->Add(pionek_zt3);
 		obrazek_planszy->Controls->Add(pionek_zt4);
 
-		UstawPolozenieIkonyPionka(pionek_zt1, 10, 1);
-		UstawPolozenieIkonyPionka(pionek_zt2, 13, 1);
-		UstawPolozenieIkonyPionka(pionek_zt3, 10, 4);
-		UstawPolozenieIkonyPionka(pionek_zt4, 13, 4);
-
 		// Ustawienie ikon pionków niebieskich:
 		obrazek_planszy->Controls->Add(pionek_n1);
 		obrazek_planszy->Controls->Add(pionek_n2);
 		obrazek_planszy->Controls->Add(pionek_n3);
 		obrazek_planszy->Controls->Add(pionek_n4);
 
-		UstawPolozenieIkonyPionka(pionek_n1, 1, 1);
-		UstawPolozenieIkonyPionka(pionek_n2, 4, 1);
-		UstawPolozenieIkonyPionka(pionek_n3, 1, 4);
-		UstawPolozenieIkonyPionka(pionek_n4, 4, 4);
+		AktualizujIkonyPionkow();
+	}
+
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
+	void Kontrolowa_widoku::AktualizujIkonyPionkow()
+	{
+		// Aktualizacja ikon pionków czerwonych:
+		UstawPolozenieIkonyPionka(pionek_c1, plansza->znajdzPole(KolorGracza::czerwony, 1));
+		UstawPolozenieIkonyPionka(pionek_c2, plansza->znajdzPole(KolorGracza::czerwony, 2));
+		UstawPolozenieIkonyPionka(pionek_c3, plansza->znajdzPole(KolorGracza::czerwony, 3));
+		UstawPolozenieIkonyPionka(pionek_c4, plansza->znajdzPole(KolorGracza::czerwony, 4));
+
+		// Aktualizacja ikon pionków zielonych:
+		UstawPolozenieIkonyPionka(pionek_zi1, plansza->znajdzPole(KolorGracza::zielony, 1));
+		UstawPolozenieIkonyPionka(pionek_zi2, plansza->znajdzPole(KolorGracza::zielony, 2));
+		UstawPolozenieIkonyPionka(pionek_zi3, plansza->znajdzPole(KolorGracza::zielony, 3));
+		UstawPolozenieIkonyPionka(pionek_zi4, plansza->znajdzPole(KolorGracza::zielony, 4));
+
+		// Aktualizacja ikon pionków ¿ó³tych:
+		UstawPolozenieIkonyPionka(pionek_zt1, plansza->znajdzPole(KolorGracza::zolty, 1));
+		UstawPolozenieIkonyPionka(pionek_zt2, plansza->znajdzPole(KolorGracza::zolty, 2));
+		UstawPolozenieIkonyPionka(pionek_zt3, plansza->znajdzPole(KolorGracza::zolty, 3));
+		UstawPolozenieIkonyPionka(pionek_zt4, plansza->znajdzPole(KolorGracza::zolty, 4));
+
+		// Aktualizacja ikon pionków niebieskich:
+		UstawPolozenieIkonyPionka(pionek_n1, plansza->znajdzPole(KolorGracza::niebieski, 1));
+		UstawPolozenieIkonyPionka(pionek_n2, plansza->znajdzPole(KolorGracza::niebieski, 2));
+		UstawPolozenieIkonyPionka(pionek_n3, plansza->znajdzPole(KolorGracza::niebieski, 3));
+		UstawPolozenieIkonyPionka(pionek_n4, plansza->znajdzPole(KolorGracza::niebieski, 4));
 	}
 
 	/****************************************************************************************/
@@ -97,9 +114,10 @@ namespace CHINCZYKLUDO {
 	void Kontrolowa_widoku::SkanujGracza()
 	{
 		Przycisk_kostka->Enabled = true;
-		std::cout << "Teraz gracz " << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray() << " niech rzuci kostka!\n";
+		//std::cout << "Teraz gracz " << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray() << " niech rzuci kostka!\n";
 
 		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
+		AktualizujIkonyPionkow();
 	}
 
 	/****************************************************************************************/
@@ -112,7 +130,7 @@ namespace CHINCZYKLUDO {
 	void Kontrolowa_widoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
-		std::cout << "Oczekiwanie na wybor pionka\n\n";
+		//std::cout << "Oczekiwanie na wybor pionka\n\n";
 
 		int oczka = plansza->RzutKostki();
 		tekst_rzut_kostka->Text = oczka.ToString();

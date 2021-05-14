@@ -16,6 +16,7 @@ public:
 	Pionek(KolorGracza graczId, int nr) { this->graczId = graczId; this->nr = nr; }
 
 	inline const KolorGracza zwrocKolorGracza() { return graczId; }
+	inline const int zwrocNr() { return nr; }
 
-	
+	bool operator ==(const Pionek p);
 };

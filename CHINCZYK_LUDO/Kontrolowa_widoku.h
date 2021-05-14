@@ -449,9 +449,10 @@ namespace CHINCZYKLUDO {
 		/***************************************************************************************************************/
 	private:
 
-		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, int poleX, int PoleY);
+		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole);
 
 		void UstawIkonyPionkow();
+		void AktualizujIkonyPionkow();
 
 		String^ KolorNaString(KolorGracza kolor);
 
