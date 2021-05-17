@@ -234,6 +234,22 @@ bool Plansza::ruchPionka()
 			}
 		}
 	}
+	else {
+
+		int i;
+		for (i = 0; i < polaPlanszy.size(); i++)
+		{
+			if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
+
+			if (polaPlanszy.at(i).pionkiNaPolu.at(0) == pionekWykonujacyRuch)
+			{
+				polaPlanszy.at(i).pionkiNaPolu.pop_back();
+				break;
+			}
+		}
+
+		polaPlanszy.at((i + ostatniRzutKostki) % polaPlanszy.size()).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+	}
 
 
 	return true;
