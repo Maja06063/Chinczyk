@@ -24,7 +24,10 @@ class Plansza
 	void UstawBazy();
 	void UstawDomki();
 
-public: 
+public:
+
+	uint16_t kliknietePionki = 0;
+	int ostatniRzutKostki = 0;
 
 	KolorGracza kolorAktywnegoGracza;
 	MaszynaStanow stanPlanszy;

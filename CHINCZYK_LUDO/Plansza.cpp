@@ -168,6 +168,7 @@ Plansza::Plansza()
 
 	stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
 	kolorAktywnegoGracza = KolorGracza::czerwony;
+
 }
 
 /****************************************************************************************/
@@ -175,10 +176,10 @@ Plansza::Plansza()
 /// <summary>
 /// 
 /// </summary>
-/// <returns></returns>
 int Plansza::RzutKostki()
 {
-	return Kostka::rzut();
+	this->ostatniRzutKostki = Kostka::rzut();
+	return this->ostatniRzutKostki;
 }
 
 /****************************************************************************************/
@@ -218,8 +219,6 @@ bool Plansza::ruchPionka(KolorGracza kolor, int nr)
 			}
 		}
 
-		kolorAktywnegoGracza = (KolorGracza)(((int)kolorAktywnegoGracza + 1)%4);
-		stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
 		return true;
 	}
 

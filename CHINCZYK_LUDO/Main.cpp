@@ -1,5 +1,5 @@
 #include "pch.h"
-#include"Kontrolowa_widoku.h"
+#include"KontrolaWidoku.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -7,10 +7,8 @@ using namespace System::Windows::Forms;
 int main()
 {
     Application::EnableVisualStyles();
-    CHINCZYKLUDO::Kontrolowa_widoku kontrola_widoku;
-    Application::Run(% kontrola_widoku);
-
-
+    CHINCZYKLUDO::KontrolaWidoku kontrolaWidoku;
+    Application::Run(% kontrolaWidoku);
 
     return 0;
 }

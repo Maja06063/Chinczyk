@@ -8,16 +8,17 @@ namespace CHINCZYKLUDO {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Threading;
 
 	/// <summary>
 	/// Podsumowanie informacji o Kontrolowa_widoku
 	/// </summary>
-	public ref class Kontrolowa_widoku : public System::Windows::Forms::Form
+	public ref class KontrolaWidoku : public System::Windows::Forms::Form
 	{
 	private:Plansza* plansza = new Plansza();
 
 	public:
-		Kontrolowa_widoku(void)
+		KontrolaWidoku(void)
 		{
 			InitializeComponent();
 			srand((unsigned int)time(0));
@@ -30,7 +31,7 @@ namespace CHINCZYKLUDO {
 		/// <summary>
 		/// Wyczyœæ wszystkie u¿ywane zasoby.
 		/// </summary>
-		~Kontrolowa_widoku()
+		~KontrolaWidoku()
 		{
 			if (components)
 			{
@@ -83,7 +84,7 @@ namespace CHINCZYKLUDO {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Kontrolowa_widoku::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(KontrolaWidoku::typeid));
 			this->Przycisk_kostka = (gcnew System::Windows::Forms::Button());
 			this->tekst_rzut_kostka = (gcnew System::Windows::Forms::Label());
 			this->obrazek_planszy = (gcnew System::Windows::Forms::PictureBox());
@@ -135,7 +136,7 @@ namespace CHINCZYKLUDO {
 			this->Przycisk_kostka->TabIndex = 0;
 			this->Przycisk_kostka->Text = L"Rzuæ kostk¹";
 			this->Przycisk_kostka->UseVisualStyleBackColor = true;
-			this->Przycisk_kostka->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::Przycisk_kostka_Click);
+			this->Przycisk_kostka->Click += gcnew System::EventHandler(this, &KontrolaWidoku::Przycisk_kostka_Click);
 			// 
 			// tekst_rzut_kostka
 			// 
@@ -171,7 +172,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_c1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_c1->TabIndex = 3;
 			this->pionek_c1->TabStop = false;
-			this->pionek_c1->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_c1_Click);
+			this->pionek_c1->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_c1_Click);
 			// 
 			// pionek_c2
 			// 
@@ -184,7 +185,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_c2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_c2->TabIndex = 4;
 			this->pionek_c2->TabStop = false;
-			this->pionek_c2->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_c2_Click);
+			this->pionek_c2->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_c2_Click);
 			// 
 			// pionek_c3
 			// 
@@ -197,7 +198,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_c3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_c3->TabIndex = 5;
 			this->pionek_c3->TabStop = false;
-			this->pionek_c3->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_c3_Click);
+			this->pionek_c3->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_c3_Click);
 			// 
 			// pionek_c4
 			// 
@@ -210,7 +211,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_c4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_c4->TabIndex = 6;
 			this->pionek_c4->TabStop = false;
-			this->pionek_c4->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_c4_Click);
+			this->pionek_c4->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_c4_Click);
 			// 
 			// pionek_zi1
 			// 
@@ -223,7 +224,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zi1->TabIndex = 7;
 			this->pionek_zi1->TabStop = false;
-			this->pionek_zi1->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zi1_Click);
+			this->pionek_zi1->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zi1_Click);
 			// 
 			// pionek_zi2
 			// 
@@ -236,7 +237,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zi2->TabIndex = 8;
 			this->pionek_zi2->TabStop = false;
-			this->pionek_zi2->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zi2_Click);
+			this->pionek_zi2->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zi2_Click);
 			// 
 			// pionek_zi3
 			// 
@@ -249,7 +250,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zi3->TabIndex = 9;
 			this->pionek_zi3->TabStop = false;
-			this->pionek_zi3->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zi3_Click);
+			this->pionek_zi3->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zi3_Click);
 			// 
 			// pionek_zi4
 			// 
@@ -262,7 +263,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zi4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zi4->TabIndex = 10;
 			this->pionek_zi4->TabStop = false;
-			this->pionek_zi4->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zi4_Click);
+			this->pionek_zi4->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zi4_Click);
 			// 
 			// pionek_zt1
 			// 
@@ -275,7 +276,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zt1->TabIndex = 11;
 			this->pionek_zt1->TabStop = false;
-			this->pionek_zt1->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zt1_Click);
+			this->pionek_zt1->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zt1_Click);
 			// 
 			// pionek_zt2
 			// 
@@ -288,7 +289,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zt2->TabIndex = 12;
 			this->pionek_zt2->TabStop = false;
-			this->pionek_zt2->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zt2_Click);
+			this->pionek_zt2->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zt2_Click);
 			// 
 			// pionek_zt3
 			// 
@@ -301,7 +302,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zt3->TabIndex = 13;
 			this->pionek_zt3->TabStop = false;
-			this->pionek_zt3->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zt3_Click);
+			this->pionek_zt3->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zt3_Click);
 			// 
 			// pionek_zt4
 			// 
@@ -314,7 +315,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_zt4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_zt4->TabIndex = 14;
 			this->pionek_zt4->TabStop = false;
-			this->pionek_zt4->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_zt4_Click);
+			this->pionek_zt4->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_zt4_Click);
 			// 
 			// pionek_n1
 			// 
@@ -327,7 +328,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n1->TabIndex = 15;
 			this->pionek_n1->TabStop = false;
-			this->pionek_n1->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n1_Click);
+			this->pionek_n1->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_n1_Click);
 			// 
 			// pionek_n2
 			// 
@@ -340,7 +341,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n2->TabIndex = 16;
 			this->pionek_n2->TabStop = false;
-			this->pionek_n2->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n2_Click);
+			this->pionek_n2->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_n2_Click);
 			// 
 			// pionek_n3
 			// 
@@ -353,7 +354,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n3->TabIndex = 17;
 			this->pionek_n3->TabStop = false;
-			this->pionek_n3->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n3_Click);
+			this->pionek_n3->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_n3_Click);
 			// 
 			// pionek_n4
 			// 
@@ -366,7 +367,7 @@ namespace CHINCZYKLUDO {
 			this->pionek_n4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pionek_n4->TabIndex = 18;
 			this->pionek_n4->TabStop = false;
-			this->pionek_n4->Click += gcnew System::EventHandler(this, &Kontrolowa_widoku::pionek_n4_Click);
+			this->pionek_n4->Click += gcnew System::EventHandler(this, &KontrolaWidoku::pionek_n4_Click);
 			// 
 			// aktualnyGraczTytul
 			// 
@@ -421,7 +422,7 @@ namespace CHINCZYKLUDO {
 			this->MaximizeBox = false;
 			this->Name = L"Kontrolowa_widoku";
 			this->Text = L"Chiñczyk";
-			this->Load += gcnew System::EventHandler(this, &Kontrolowa_widoku::Kontrolowa_widoku_Load);
+			this->Load += gcnew System::EventHandler(this, &KontrolaWidoku::Kontrolowa_widoku_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->obrazek_planszy))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pionek_c2))->EndInit();
@@ -451,43 +452,48 @@ namespace CHINCZYKLUDO {
 
 		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole);
 
-		void UstawIkonyPionkow();
+		void PrzypiszIkonyPionkow();
 		void AktualizujIkonyPionkow();
 
 		String^ KolorNaString(KolorGracza kolor);
 
-		void SkanujGracza();
+		//void SkanujGracza();
 
 
 
 		void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
 
 		void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
-		
-
 
 		/***************************************************************************************************************/
-		
+
+		void PetlaGry();
+		void PetlaGryOczekiwanieNaRzut();
+		void PetlaGryOczekiwanieNaWyborPionka();
+		bool PetlaGryTrwaRuch();
+
+		/***************************************************************************************************************/
+
 		// Obs³uga klikniêæ ikon pionków:
-		void pionek_c1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 1)) SkanujGracza(); }
-		void pionek_c2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 2)) SkanujGracza(); }
-		void pionek_c3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 3)) SkanujGracza(); }
-		void pionek_c4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::czerwony, 4)) SkanujGracza(); }
+		void pionek_c1_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 0); }
+		void pionek_c2_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 1); }
+		void pionek_c3_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 2); }
+		void pionek_c4_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 3); }
 
-		void pionek_zi1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zielony, 1)) SkanujGracza(); }
-		void pionek_zi2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zielony, 2)) SkanujGracza(); }
-		void pionek_zi3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zielony, 3)) SkanujGracza(); }
-		void pionek_zi4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zielony, 4)) SkanujGracza(); }
+		void pionek_zi1_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 4); }
+		void pionek_zi2_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 5); }
+		void pionek_zi3_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 6); }
+		void pionek_zi4_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 7); }
 
-		void pionek_zt1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 1)) SkanujGracza(); }
-		void pionek_zt2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 2)) SkanujGracza(); }
-		void pionek_zt3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 3)) SkanujGracza(); }
-		void pionek_zt4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::zolty, 4)) SkanujGracza(); }
+		void pionek_zt1_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 8); }
+		void pionek_zt2_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 9); }
+		void pionek_zt3_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 10); }
+		void pionek_zt4_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 11); }
 
-		void pionek_n1_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 1)) SkanujGracza(); }
-		void pionek_n2_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 2)) SkanujGracza(); }
-		void pionek_n3_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 3)) SkanujGracza(); }
-		void pionek_n4_Click(System::Object^ sender, System::EventArgs^ e) { if (plansza->ruchPionka(KolorGracza::niebieski, 4)) SkanujGracza(); }
+		void pionek_n1_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 12); }
+		void pionek_n2_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 13); }
+		void pionek_n3_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 14); }
+		void pionek_n4_Click(System::Object^ sender, System::EventArgs^ e) { plansza->kliknietePionki = (1 << 15); }
 
-};
+	};
 }
