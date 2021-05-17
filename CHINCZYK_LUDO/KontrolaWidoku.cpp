@@ -149,7 +149,6 @@ namespace CHINCZYKLUDO {
 	void KontrolaWidoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		PrzypiszIkonyPionkow();
-		//SkanujGracza();
 
 		Thread^ watekPetliGry = gcnew Thread(gcnew ThreadStart(this, &KontrolaWidoku::PetlaGry));
 		watekPetliGry->Start();

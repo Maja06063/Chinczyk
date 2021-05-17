@@ -457,10 +457,6 @@ namespace CHINCZYKLUDO {
 
 		String^ KolorNaString(KolorGracza kolor);
 
-		//void SkanujGracza();
-
-
-
 		void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
 
 		void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
@@ -469,7 +465,7 @@ namespace CHINCZYKLUDO {
 
 		void PetlaGry();
 		void PetlaGryOczekiwanieNaRzut();
-		void PetlaGryOczekiwanieNaWyborPionka();
+		bool PetlaGryOczekiwanieNaWyborPionka();
 		bool PetlaGryTrwaRuch();
 
 		/***************************************************************************************************************/

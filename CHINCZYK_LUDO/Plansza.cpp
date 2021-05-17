@@ -188,38 +188,82 @@ int Plansza::RzutKostki()
 /// 
 /// </summary>
 /// <param name="kolor"></param>
-/// <param name=""></param>
-bool Plansza::ruchPionka(KolorGracza kolor, int nr)
+/// <param name="">true - Ruch wykonany, false - ruch niewykonany.</param>
+bool Plansza::ruchPionka()
 {
-	if (stanPlanszy == MaszynaStanow::oczekiwanieNaWyborPionka && kolorAktywnegoGracza == kolor) {
+	uint16_t nr = kliknietePionki;
 
-		Pionek pionekWykonujacyRuch(kolor, nr);
-		bool czyWBazie = false;
+	while (!(nr & 0xf))
+	{
+		nr = nr >> 4;
+	}
 
-		for (Baza& baza : polaBazy)
+	int nrPionka = 1;
+
+	while (!(nr & 0x01))
+	{
+		nrPionka++;
+		nr = nr >> 1;
+	}
+
+	
+	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka);
+	bool czyWBazie = false;
+
+	for (Baza& baza : polaBazy)
+	{
+		if (baza.pionkiNaPolu.empty()) continue;
+
+		if (baza.pionkiNaPolu.at(0) == pionekWykonujacyRuch)
 		{
-			if (baza.pionkiNaPolu.empty()) continue;
+			czyWBazie = true;
+			baza.pionkiNaPolu.pop_back();
+		}
+	}
 
-			if (baza.pionkiNaPolu.at(0) == pionekWykonujacyRuch)
+	if (czyWBazie)
+	{
+		if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
+
+		for (Pole& pole : polaPlanszy)
+		{
+			if (pole.punktWejscia == kolorAktywnegoGracza)
 			{
-				czyWBazie = true;
-				baza.pionkiNaPolu.pop_back();
+				pole.pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				break;
 			}
 		}
+	}
 
-		if (czyWBazie)
-		{
-			for (Pole& pole : polaPlanszy)
-			{
-				if (pole.punktWejscia == kolor)
-				{
-					pole.pionkiNaPolu.push_back(pionekWykonujacyRuch);
-					break;
-				}
-			}
-		}
 
-		return true;
+	return true;
+}
+
+/****************************************************************************************/
+
+/// <summary>
+/// 
+/// </summary>
+/// <returns></returns>
+bool Plansza::CzyDobryPionekWybrano()
+{
+	switch (kolorAktywnegoGracza)
+	{
+	case KolorGracza::czerwony:
+
+		return kliknietePionki & 0xf;
+
+	case KolorGracza::zielony:
+
+		return (kliknietePionki >> 4) & 0xf;
+
+	case KolorGracza::zolty:
+
+		return (kliknietePionki >> 8) & 0xf;
+
+	case KolorGracza::niebieski:
+
+		return (kliknietePionki >> 12) & 0xf;
 	}
 
 	return false;
@@ -259,4 +303,25 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 
 
 	return Pole(0, 0);
+}
+
+/****************************************************************************************/
+
+bool Plansza::CzyMozliwyRuch()
+{
+	int pionkiWBazie = 0;
+
+	if (ostatniRzutKostki == 1 || ostatniRzutKostki == 6) return true;
+
+	for (Baza baza : polaBazy)
+	{
+		if (baza.pionkiNaPolu.empty()) continue;
+
+		if (baza.pionkiNaPolu.at(0).zwrocKolorGracza() == kolorAktywnegoGracza)
+		{
+			pionkiWBazie++;
+		}
+	}
+
+	return (pionkiWBazie != 4);
 }

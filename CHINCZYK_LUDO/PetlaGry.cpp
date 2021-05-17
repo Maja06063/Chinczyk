@@ -15,8 +15,13 @@ namespace CHINCZYKLUDO {
 		while (1) {
 
 			PetlaGryOczekiwanieNaRzut();
-			PetlaGryOczekiwanieNaWyborPionka();
-			PetlaGryTrwaRuch();
+
+			while(1)
+			{
+				if (!PetlaGryOczekiwanieNaWyborPionka()) break;
+				if (!PetlaGryTrwaRuch()) break;
+			}
+
 		}
 	}
 
@@ -31,9 +36,8 @@ namespace CHINCZYKLUDO {
 			<< msclr::interop::marshal_as<std::string>(KolorNaString(plansza->kolorAktywnegoGracza))
 			<< " niech rzuci kostka!\n";
 
-		Invoke(gcnew System::Action(this, &KontrolaWidoku::AktualizujIkonyPionkow));
-
 		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
+		Invoke(gcnew System::Action(this, &KontrolaWidoku::AktualizujIkonyPionkow));
 
 		while (plansza->stanPlanszy == MaszynaStanow::oczekiwanieNaRzut);
 	}
@@ -43,11 +47,21 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// 
 	/// </summary>
-	void KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
+	/// <returns></returns>
+	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
+		if (!plansza->CzyMozliwyRuch())
+		{
+			cout << "Brak mozliwosci ruchu\n";
+			plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
+			return false;
+		}
+		
 		plansza->kliknietePionki = 0;
 		cout << "Oczekiwanie na wybor pionka\n\n";
 		while (plansza->kliknietePionki == 0);
+
+		return true;
 	}
 
 	/****************************************************************************************/
@@ -55,14 +69,16 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>true - Nale¿y powtórzyæ wybór pionka, false - ruch zakoñczony</returns>
 	bool KontrolaWidoku::PetlaGryTrwaRuch()
 	{
+		bool powtornyRzutKostka = false;
+
 		plansza->stanPlanszy = MaszynaStanow::trwaRuch;
-		//plansza->ruchPionka();
+		if (!plansza->CzyDobryPionekWybrano()) return true;
+		if (!plansza->ruchPionka()) return true;
 
-		plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
-
-		return true;
+		if (!powtornyRzutKostka) plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
+		return false;
 	}
 }

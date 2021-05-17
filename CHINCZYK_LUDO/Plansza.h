@@ -34,7 +34,9 @@ public:
 
 	Plansza();
 
-	bool ruchPionka(KolorGracza kolor, int nr);
+	bool ruchPionka();
+	bool CzyDobryPionekWybrano();
+	bool CzyMozliwyRuch();
 
 	Pole znajdzPole(KolorGracza kolor, int nr);
 
