@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['znajdzpole_14',['znajdzPole',['../class_plansza.html#a91fd088379fedf1069d881fd661d4265',1,'Plansza']]]
+  ['tostring_16',['ToString',['../class_pole.html#a0e1db3904a92d0218b68962545b46a6b',1,'Pole']]]
 ];

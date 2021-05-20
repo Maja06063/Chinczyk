@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p> 
+<p>Klasa <a class="el" href="class_plansza.html" title="Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce ...">Plansza</a> zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry.  
  <a href="class_plansza.html#details">WiÄ™cej...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_plansza_8h_source.html">Plansza.h</a>&gt;</code></p>
@@ -79,17 +79,22 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
 <tr class="memitem:ae58ab9e9e0a12c39f36750a0faa2c100"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#ae58ab9e9e0a12c39f36750a0faa2c100">Plansza</a> ()</td></tr>
+<tr class="memdesc:ae58ab9e9e0a12c39f36750a0faa2c100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy plansza. Ustawia graczy, pola i zmienia stan planszy na oczekuj¹cy na rzut kostk¹  <a href="class_plansza.html#ae58ab9e9e0a12c39f36750a0faa2c100">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:ae58ab9e9e0a12c39f36750a0faa2c100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b066d0cc923a26a83a248f7c5edbbd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#a9b066d0cc923a26a83a248f7c5edbbd0">ruchPionka</a> ()</td></tr>
+<tr class="memdesc:a9b066d0cc923a26a83a248f7c5edbbd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda ruchPionka przeprowadza ruch wybranego pionka. <a class="el" href="class_pionek.html" title="Klasa Pionek zawieraj¹ca potrzebne metody oraz atrybuty u³atwiaj¹ce zarz¹dzanie pionkiem w grze.">Pionek</a> rozkodowywany jest z atrybutu kliknietePionki, który jest 16 bitow¹ bezznakow¹ zmienn¹. 1 na danym bicie oznacza odpowiedni pionek. Przyk³ady: 0000-0000-0001-0000 - Wybrany pionek nr 1 o kolorze zielonym, 0100-0000-0000-0000 - Wybrany pionek nr 3 o kolorze niebieskim, 0000-0000-0000-1000 - Wybrany pionek nr 4 o kolorze czerwonym.  <a href="class_plansza.html#a9b066d0cc923a26a83a248f7c5edbbd0">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:a9b066d0cc923a26a83a248f7c5edbbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32a4d8116bf47694f18df57c6ea8d66f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#a32a4d8116bf47694f18df57c6ea8d66f">CzyDobryPionekWybrano</a> ()</td></tr>
+<tr class="memdesc:a32a4d8116bf47694f18df57c6ea8d66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda CzyDobryPionekWybrano zwraca informacje o tym, czy kliknieto na pionek dobrego koloru.  <a href="class_plansza.html#a32a4d8116bf47694f18df57c6ea8d66f">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:a32a4d8116bf47694f18df57c6ea8d66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1511582ebfa3ae2fb818892acef4ee40"><td class="memItemLeft" align="right" valign="top"><a id="a1511582ebfa3ae2fb818892acef4ee40"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CzyMozliwyRuch</b> ()</td></tr>
+<tr class="memitem:a1511582ebfa3ae2fb818892acef4ee40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#a1511582ebfa3ae2fb818892acef4ee40">CzyMozliwyRuch</a> ()</td></tr>
+<tr class="memdesc:a1511582ebfa3ae2fb818892acef4ee40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda CzyMozliwyRuch sprawdza, czy jest mo¿liwy ruch jakikolwiek pionkiem danego gracza.  <a href="class_plansza.html#a1511582ebfa3ae2fb818892acef4ee40">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:a1511582ebfa3ae2fb818892acef4ee40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91fd088379fedf1069d881fd661d4265"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pole.html">Pole</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#a91fd088379fedf1069d881fd661d4265">znajdzPole</a> (KolorGracza kolor, int nr)</td></tr>
+<tr class="memdesc:a91fd088379fedf1069d881fd661d4265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda s³u¿¹ca do znalezienia, na którym polu znajduje siê pionek.  <a href="class_plansza.html#a91fd088379fedf1069d881fd661d4265">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:a91fd088379fedf1069d881fd661d4265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de31c04880f6620fbdaa6a77343c5aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plansza.html#a2de31c04880f6620fbdaa6a77343c5aa">RzutKostki</a> ()</td></tr>
+<tr class="memdesc:a2de31c04880f6620fbdaa6a77343c5aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda RzutKostki aktualizuje stan zmiennnej ostatni rzut kostki oraz zwraca iloœæ wyrzuconych oczek.  <a href="class_plansza.html#a2de31c04880f6620fbdaa6a77343c5aa">WiÄ™cej...</a><br /></td></tr>
 <tr class="separator:a2de31c04880f6620fbdaa6a77343c5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -108,7 +113,8 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
 <tr class="separator:a19d05c0ceed69233869af7aa70abfb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegÃ³Å‚owy</h2>
-<div class="textblock"></div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<div class="textblock"><p>Klasa <a class="el" href="class_plansza.html" title="Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce ...">Plansza</a> zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
 <a id="ae58ab9e9e0a12c39f36750a0faa2c100"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae58ab9e9e0a12c39f36750a0faa2c100">&#9670;&nbsp;</a></span>Plansza()</h2>
 
@@ -124,7 +130,7 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Konstruktor klasy plansza. Ustawia graczy, pola i zmienia stan planszy na oczekuj¹cy na rzut kostk¹ </p>
 
 </div>
 </div>
@@ -144,8 +150,28 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
       </table>
 </div><div class="memdoc">
 
-<p></p>
-<dl class="section return"><dt>Zwraca</dt><dd></dd></dl>
+<p>Metoda CzyDobryPionekWybrano zwraca informacje o tym, czy kliknieto na pionek dobrego koloru. </p>
+<dl class="section return"><dt>Zwraca</dt><dd>true - wybrano pionek dobrego koloru, false - pionek z³ego koloru</dd></dl>
+
+</div>
+</div>
+<a id="a1511582ebfa3ae2fb818892acef4ee40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1511582ebfa3ae2fb818892acef4ee40">&#9670;&nbsp;</a></span>CzyMozliwyRuch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Plansza::CzyMozliwyRuch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Metoda CzyMozliwyRuch sprawdza, czy jest mo¿liwy ruch jakikolwiek pionkiem danego gracza. </p>
+<dl class="section return"><dt>Zwraca</dt><dd>true - ruch mo¿liwy, false - ruch niemo¿liwy</dd></dl>
 
 </div>
 </div>
@@ -164,13 +190,7 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
       </table>
 </div><div class="memdoc">
 
-<p></p>
-<dl class="params"><dt>Parametry</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">kolor</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Metoda ruchPionka przeprowadza ruch wybranego pionka. <a class="el" href="class_pionek.html" title="Klasa Pionek zawieraj¹ca potrzebne metody oraz atrybuty u³atwiaj¹ce zarz¹dzanie pionkiem w grze.">Pionek</a> rozkodowywany jest z atrybutu kliknietePionki, który jest 16 bitow¹ bezznakow¹ zmienn¹. 1 na danym bicie oznacza odpowiedni pionek. Przyk³ady: 0000-0000-0001-0000 - Wybrany pionek nr 1 o kolorze zielonym, 0100-0000-0000-0000 - Wybrany pionek nr 3 o kolorze niebieskim, 0000-0000-0000-1000 - Wybrany pionek nr 4 o kolorze czerwonym. </p>
 <p>true - Ruch wykonany, false - ruch niewykonany.</p>
 
 </div>
@@ -190,7 +210,7 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Metoda RzutKostki aktualizuje stan zmiennnej ostatni rzut kostki oraz zwraca iloœæ wyrzuconych oczek. </p>
 
 </div>
 </div>
@@ -220,15 +240,15 @@ MaszynaStanow&#160;</td><td class="memItemRight" valign="bottom"><b>stanPlanszy<
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Metoda s³u¿¹ca do znalezienia, na którym polu znajduje siê pionek. </p>
 <dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">kolor</td><td></td></tr>
-    <tr><td class="paramname">nr</td><td></td></tr>
+    <tr><td class="paramname">kolor</td><td>kolor pionka</td></tr>
+    <tr><td class="paramname">nr</td><td>nr pionka</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Zwraca</dt><dd></dd></dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Metoda zwraca znalezione pole</dd></dl>
 
 </div>
 </div>
