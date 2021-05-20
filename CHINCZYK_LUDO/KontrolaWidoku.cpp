@@ -2,19 +2,15 @@
 #include "KontrolaWidoku.h"
 using namespace std;
 
-/// <summary>
-/// 
-/// </summary>
 namespace CHINCZYKLUDO {
 
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Metoda UstawPolozenieIkonyPionka ustawia po³o¿enie ikony pionka na danym polu.
 	/// </summary>
-	/// <param name="ikonaPionka"></param>
-	/// <param name="poleX"></param>
-	/// <param name="PoleY"></param>
+	/// <param name="ikonaPionka">Zarz¹dzana referencja na pionek, który nale¿y ustawiæ</param>
+	/// <param name="pole">Pole na którym ustawiæ pionek</param>
 	void KontrolaWidoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole)
 	{
 		int x = pole.pozX();
@@ -26,7 +22,8 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Metoda PrzypiszIkonyPionkow przypisuje ikony pionków do obrazka planszy,
+	/// przez co widoczna jest przezroczystoœæ dooko³a pionków.
 	/// </summary>
 	void KontrolaWidoku::PrzypiszIkonyPionkow()
 	{
@@ -58,7 +55,7 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Metoda AktualizujIkonyPionkow przemieszcza ikony pionków na odpowiednie pola.
 	/// </summary>
 	void KontrolaWidoku::AktualizujIkonyPionkow()
 	{
@@ -93,10 +90,10 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Metoda KolorNaString s³u¿y do uzyskania nazwy koloru gracza.
 	/// </summary>
-	/// <param name="kolor"></param>
-	/// <returns></returns>
+	/// <param name="kolor">Kolor gracza do przekonwertowania na nazwê</param>
+	/// <returns>Zarz¹dzana referencja na stringa systemowego bêd¹ca nazw¹ koloru</returns>
 	String^ KontrolaWidoku::KolorNaString(KolorGracza kolor)
 	{
 		switch (kolor)
@@ -112,24 +109,11 @@ namespace CHINCZYKLUDO {
 
 	/****************************************************************************************/
 
-	/*void KontrolaWidoku::SkanujGracza()
-	{
-		Przycisk_kostka->Enabled = true;
-		cout << "Teraz gracz ";
-		cout << KolorNaString(plansza->kolorAktywnegoGracza)->ToCharArray();
-		cout << " niech rzuci kostka!\n";
-
-		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
-		AktualizujIkonyPionkow();
-	}*/
-
-	/****************************************************************************************/
-
 	/// <summary>
-	/// 
+	/// Metoda Przycisk_kostka_Click obs³uguje przerwanie po klikniêciu w przycisk rzutu kostk¹.
 	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
+	/// <param name="sender">Zarz¹dzana referencja na obiekt wywo³uj¹cy przerwanie</param>
+	/// <param name="e">Parametry przerwania</param>
 	void KontrolaWidoku::Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		int oczka = plansza->RzutKostki();
@@ -144,8 +128,8 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
+	/// <param name="sender">Zarz¹dzana referencja na obiekt wywo³uj¹cy przerwanie</param>
+	/// <param name="e">Parametry przerwania</param>
 	void KontrolaWidoku::Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		PrzypiszIkonyPionkow();

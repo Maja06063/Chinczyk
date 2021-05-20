@@ -2,7 +2,7 @@
 #include"Plansza.h"
 
 /// <summary>
-/// Namespace Chinczykludo zawiera klasê zajmuj¹c¹ siê wielow¹tkow¹ obs³ug¹ okna programu oraz pêtli gry.
+/// Namespace CHINCZYKLUDO zawiera klasê zajmuj¹c¹ siê wielow¹tkow¹ obs³ug¹ okna programu oraz pêtli gry.
 /// </summary>
 namespace CHINCZYKLUDO {
 
