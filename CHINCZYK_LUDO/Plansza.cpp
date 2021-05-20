@@ -178,7 +178,7 @@ Plansza::Plansza()
 /// </summary>
 int Plansza::RzutKostki()
 {
-	this->ostatniRzutKostki = Kostka::rzut();
+	this->ostatniRzutKostki = Kostka::Rzut();
 	return this->ostatniRzutKostki;
 }
 

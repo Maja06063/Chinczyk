@@ -6,7 +6,7 @@
 class Kostka
 {
 
-public:static int rzut();
+public:static int Rzut();
 
 };
 
