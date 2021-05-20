@@ -4,7 +4,7 @@
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda UstawGraczy s³u¿y do ustawienia kolorów wszystkim czterem graczom w grze.
 /// </summary>
 void Plansza::UstawGraczy()
 {
@@ -17,7 +17,7 @@ void Plansza::UstawGraczy()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda UstawPola wywo³uje pokolej seriê metod ustawiaj¹cych informacje o polach planszy.
 /// </summary>
 void Plansza::UstawPola()
 {
@@ -29,7 +29,7 @@ void Plansza::UstawPola()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda ustawia wspó³rzêdne i inne w³aœciwoœci pól planszy.
 /// </summary>
 void Plansza::UstawZwyklePola()
 {
@@ -116,7 +116,7 @@ void Plansza::UstawZwyklePola()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda ustawia wspó³rzêdne i inne w³aœciwoœci pól planszy bêd¹cych bazami.
 /// </summary>
 void Plansza::UstawBazy()
 {
@@ -150,16 +150,17 @@ void Plansza::UstawBazy()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda ustawia wspó³rzêdne i inne w³aœciwoœci pól planszy bêd¹cych domkami.
 /// </summary>
 void Plansza::UstawDomki()
 {
+
 }
 
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Konstruktor klasy plansza. Ustawia graczy, pola i zmienia stan planszy na oczekuj¹cy na rzut kostk¹
 /// </summary>
 Plansza::Plansza()
 {
@@ -174,7 +175,7 @@ Plansza::Plansza()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda RzutKostki aktualizuje stan zmiennnej ostatni rzut kostki oraz zwraca iloœæ wyrzuconych oczek.
 /// </summary>
 int Plansza::RzutKostki()
 {
@@ -185,15 +186,20 @@ int Plansza::RzutKostki()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda ruchPionka przeprowadza ruch wybranego pionka.
+/// Pionek rozkodowywany jest z atrybutu kliknietePionki,
+/// który jest 16 bitow¹ bezznakow¹ zmienn¹. 1 na danym bicie oznacza odpowiedni pionek.
+/// Przyk³ady:
+/// 0000-0000-0001-0000 - Wybrany pionek nr 1 o kolorze zielonym,
+/// 0100-0000-0000-0000 - Wybrany pionek nr 3 o kolorze niebieskim,
+/// 0000-0000-0000-1000 - Wybrany pionek nr 4 o kolorze czerwonym.
 /// </summary>
-/// <param name="kolor"></param>
 /// <param name="">true - Ruch wykonany, false - ruch niewykonany.</param>
 bool Plansza::ruchPionka()
 {
 	uint16_t nr = kliknietePionki;
 
-	while (!(nr & 0xf))
+	while (!(nr & 0xf)) // liczba & 0xf to po prostu wydzielenie 4 bitów liczby.
 	{
 		nr = nr >> 4;
 	}
@@ -258,9 +264,9 @@ bool Plansza::ruchPionka()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda CzyDobryPionekWybrano zwraca informacje o tym, czy kliknieto na pionek dobrego koloru.
 /// </summary>
-/// <returns></returns>
+/// <returns>true - wybrano pionek dobrego koloru, false - pionek z³ego koloru</returns>
 bool Plansza::CzyDobryPionekWybrano()
 {
 	switch (kolorAktywnegoGracza)
@@ -288,11 +294,11 @@ bool Plansza::CzyDobryPionekWybrano()
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Metoda s³u¿¹ca do znalezienia, na którym polu znajduje siê pionek.
 /// </summary>
-/// <param name="kolor"></param>
-/// <param name="nr"></param>
-/// <returns></returns>
+/// <param name="kolor">kolor pionka</param>
+/// <param name="nr">nr pionka</param>
+/// <returns>Metoda zwraca znalezione pole</returns>
 Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 {
 	Pionek szukanyPionek(kolor, nr);
@@ -323,6 +329,10 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 
 /****************************************************************************************/
 
+/// <summary>
+/// Metoda CzyMozliwyRuch sprawdza, czy jest mo¿liwy ruch jakikolwiek pionkiem danego gracza.
+/// </summary>
+/// <returns>true - ruch mo¿liwy, false - ruch niemo¿liwy</returns>
 bool Plansza::CzyMozliwyRuch()
 {
 	int pionkiWBazie = 0;
