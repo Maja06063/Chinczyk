@@ -31,26 +31,7 @@ var menudata={children:[
 {text:"Indeks klas",url:"classes.html"},
 {text:"Hierarchia klas",url:"hierarchy.html"},
 {text:"Składowe klas",url:"functions.html",children:[
-{text:"Wszystko",url:"functions.html",children:[
-{text:"b",url:"functions.html#index_b"},
-{text:"c",url:"functions.html#index_c"},
-{text:"k",url:"functions.html#index_k"},
-{text:"m",url:"functions.html#index_m"},
-{text:"o",url:"functions.html#index_o"},
-{text:"p",url:"functions.html#index_p"},
-{text:"r",url:"functions.html#index_r"},
-{text:"s",url:"functions.html#index_s"},
-{text:"t",url:"functions.html#index_t"},
-{text:"u",url:"functions.html#index_u"},
-{text:"x",url:"functions.html#index_x"},
-{text:"y",url:"functions.html#index_y"},
-{text:"z",url:"functions.html#index_z"},
-{text:"~",url:"functions.html#index__7E"}]},
-{text:"Funkcje",url:"functions_func.html"},
-{text:"Zmienne",url:"functions_vars.html"}]}]},
+{text:"Wszystko",url:"functions.html"},
+{text:"Funkcje",url:"functions_func.html"}]}]},
 {text:"Pliki",url:"files.html",children:[
-{text:"Lista plików",url:"files.html"},
-{text:"Składowe plików",url:"globals.html",children:[
-{text:"Wszystko",url:"globals.html"},
-{text:"Funkcje",url:"globals_func.html"},
-{text:"Wyliczenia",url:"globals_enum.html"}]}]}]}
+{text:"Lista plików",url:"files.html"}]}]}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Chinczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Gracz.h</title>
+<title>Chińczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Gracz.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Chinczyk Ludo
+   <div id="projectname">Chińczyk Ludo
    &#160;<span id="projectnumber">0.8</span>
    </div>
   </td>
@@ -70,15 +70,15 @@ $(function() {
 <div class="title">Gracz.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_gracz_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">    6</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">enum class</span> KolorGracza</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{   </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3ad2913314933fef41eda8be5d6a43373d">czerwony</a> = 0,</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3ac06cc1e3e996b8696ecc3d1f307806d1">zielony</a>,</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a75942bf30c80b0b601544060e3a484f8">zolty</a>,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a50981601448ece2e1de05f619854c0eb">niebieski</a>,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a18144a52e0ab0417932d87bf084491ae">brak</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    czerwony = 0,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    zielony,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    zolty,</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    niebieski,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    brak</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
@@ -86,24 +86,16 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_gracz.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_gracz.html">Gracz</a></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> graczId = <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a18144a52e0ab0417932d87bf084491ae">KolorGracza::brak</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    KolorGracza graczId = KolorGracza::brak;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_gracz.html#af3bd56569eb95be16c5a6d0bfdd4af5b">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gracz.html#af3bd56569eb95be16c5a6d0bfdd4af5b">ustawKolor</a>(<a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> nowyKolor) { <span class="keywordflow">if</span> (graczId != <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a18144a52e0ab0417932d87bf084491ae">KolorGracza::brak</a>) graczId = nowyKolor; }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> ustawKolor(KolorGracza nowyKolor) { <span class="keywordflow">if</span> (graczId != KolorGracza::brak) graczId = nowyKolor; }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_gracz.html#aebed4bc1e6dbb4e2768c0a43d4ba4cb0">   29</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> <a class="code" href="class_gracz.html#aebed4bc1e6dbb4e2768c0a43d4ba4cb0">zwrocKolor</a>() { <span class="keywordflow">return</span> graczId; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">inline</span> KolorGracza zwrocKolor() { <span class="keywordflow">return</span> graczId; }</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a></div><div class="ttdeci">KolorGracza</div><div class="ttdef"><b>Definition:</b> Gracz.h:7</div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3a18144a52e0ab0417932d87bf084491ae"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a18144a52e0ab0417932d87bf084491ae">KolorGracza::brak</a></div><div class="ttdeci">@ brak</div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3a50981601448ece2e1de05f619854c0eb"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a50981601448ece2e1de05f619854c0eb">KolorGracza::niebieski</a></div><div class="ttdeci">@ niebieski</div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3a75942bf30c80b0b601544060e3a484f8"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3a75942bf30c80b0b601544060e3a484f8">KolorGracza::zolty</a></div><div class="ttdeci">@ zolty</div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3ac06cc1e3e996b8696ecc3d1f307806d1"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3ac06cc1e3e996b8696ecc3d1f307806d1">KolorGracza::zielony</a></div><div class="ttdeci">@ zielony</div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3ad2913314933fef41eda8be5d6a43373d"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3ad2913314933fef41eda8be5d6a43373d">KolorGracza::czerwony</a></div><div class="ttdeci">@ czerwony</div></div>
 <div class="ttc" id="aclass_gracz_html"><div class="ttname"><a href="class_gracz.html">Gracz</a></div><div class="ttdef"><b>Definition:</b> Gracz.h:22</div></div>
-<div class="ttc" id="aclass_gracz_html_aebed4bc1e6dbb4e2768c0a43d4ba4cb0"><div class="ttname"><a href="class_gracz.html#aebed4bc1e6dbb4e2768c0a43d4ba4cb0">Gracz::zwrocKolor</a></div><div class="ttdeci">KolorGracza zwrocKolor()</div><div class="ttdef"><b>Definition:</b> Gracz.h:29</div></div>
-<div class="ttc" id="aclass_gracz_html_af3bd56569eb95be16c5a6d0bfdd4af5b"><div class="ttname"><a href="class_gracz.html#af3bd56569eb95be16c5a6d0bfdd4af5b">Gracz::ustawKolor</a></div><div class="ttdeci">void ustawKolor(KolorGracza nowyKolor)</div><div class="ttdef"><b>Definition:</b> Gracz.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

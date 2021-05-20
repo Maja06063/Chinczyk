@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['gracz_12',['Gracz',['../class_gracz.html',1,'']]],
-  ['gracz_2ecpp_13',['Gracz.cpp',['../_gracz_8cpp.html',1,'']]],
-  ['gracz_2eh_14',['Gracz.h',['../_gracz_8h.html',1,'']]]
+  ['kontrolawidoku_5',['KontrolaWidoku',['../class_c_h_i_n_c_z_y_k_l_u_d_o_1_1_kontrola_widoku.html',1,'CHINCZYKLUDO']]],
+  ['kostka_6',['Kostka',['../class_kostka.html',1,'']]]
 ];

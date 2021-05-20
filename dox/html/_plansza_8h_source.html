@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Chinczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Plansza.h</title>
+<title>Chińczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Plansza.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Chinczyk Ludo
+   <div id="projectname">Chińczyk Ludo
    &#160;<span id="projectnumber">0.8</span>
    </div>
   </td>
@@ -70,12 +70,12 @@ $(function() {
 <div class="title">Plansza.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_plansza_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_kostka_8h.html">Kostka.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gracz_8h.html">Gracz.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_pole_8h.html">Pole.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_baza_8h.html">Baza.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_domek_8h.html">Domek.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Kostka.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Gracz.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Pole.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Baza.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Domek.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;MaszynaStan�w.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_plansza.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_plansza.html">Plansza</a></div>
@@ -95,40 +95,28 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_plansza.html#ab409d774e7c68420936ab1e6a94737dc">   29</a></span>&#160;    uint16_t <a class="code" href="class_plansza.html#ab409d774e7c68420936ab1e6a94737dc">kliknietePionki</a> = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_plansza.html#abbc4a4780ec260889e8da2d24a57de01">   30</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_plansza.html#abbc4a4780ec260889e8da2d24a57de01">ostatniRzutKostki</a> = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    uint16_t kliknietePionki = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> ostatniRzutKostki = 0;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_plansza.html#aba99e0ccf40ea309377f70e85bfc19ab">   32</a></span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> <a class="code" href="class_plansza.html#aba99e0ccf40ea309377f70e85bfc19ab">kolorAktywnegoGracza</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_plansza.html#a19d05c0ceed69233869af7aa70abfb29">   33</a></span>&#160;    <a class="code" href="_maszyna_stan_xC3_xB3w_8h.html#a3d782c81c94feaf19cfa9f911e76f87a">MaszynaStanow</a> <a class="code" href="class_plansza.html#a19d05c0ceed69233869af7aa70abfb29">stanPlanszy</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    KolorGracza kolorAktywnegoGracza;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    MaszynaStanow stanPlanszy;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_plansza.html#ae58ab9e9e0a12c39f36750a0faa2c100">Plansza</a>();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plansza.html#a9b066d0cc923a26a83a248f7c5edbbd0">ruchPionka</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plansza.html#a32a4d8116bf47694f18df57c6ea8d66f">CzyDobryPionekWybrano</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plansza.html#a1511582ebfa3ae2fb818892acef4ee40">CzyMozliwyRuch</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> CzyMozliwyRuch();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_pole.html">Pole</a> <a class="code" href="class_plansza.html#a91fd088379fedf1069d881fd661d4265">znajdzPole</a>(<a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> kolor, <span class="keywordtype">int</span> nr);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_pole.html">Pole</a> <a class="code" href="class_plansza.html#a91fd088379fedf1069d881fd661d4265">znajdzPole</a>(KolorGracza kolor, <span class="keywordtype">int</span> nr);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_plansza.html#a2de31c04880f6620fbdaa6a77343c5aa">RzutKostki</a>();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="ttc" id="a_baza_8h_html"><div class="ttname"><a href="_baza_8h.html">Baza.h</a></div></div>
-<div class="ttc" id="a_domek_8h_html"><div class="ttname"><a href="_domek_8h.html">Domek.h</a></div></div>
-<div class="ttc" id="a_gracz_8h_html"><div class="ttname"><a href="_gracz_8h.html">Gracz.h</a></div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a></div><div class="ttdeci">KolorGracza</div><div class="ttdef"><b>Definition:</b> Gracz.h:7</div></div>
-<div class="ttc" id="a_kostka_8h_html"><div class="ttname"><a href="_kostka_8h.html">Kostka.h</a></div></div>
-<div class="ttc" id="a_maszyna_stan_xC3_xB3w_8h_html_a3d782c81c94feaf19cfa9f911e76f87a"><div class="ttname"><a href="_maszyna_stan_xC3_xB3w_8h.html#a3d782c81c94feaf19cfa9f911e76f87a">MaszynaStanow</a></div><div class="ttdeci">MaszynaStanow</div><div class="ttdef"><b>Definition:</b> MaszynaStanów.h:4</div></div>
-<div class="ttc" id="a_pole_8h_html"><div class="ttname"><a href="_pole_8h.html">Pole.h</a></div></div>
 <div class="ttc" id="aclass_gracz_html"><div class="ttname"><a href="class_gracz.html">Gracz</a></div><div class="ttdef"><b>Definition:</b> Gracz.h:22</div></div>
 <div class="ttc" id="aclass_plansza_html"><div class="ttname"><a href="class_plansza.html">Plansza</a></div><div class="ttdef"><b>Definition:</b> Plansza.h:13</div></div>
-<div class="ttc" id="aclass_plansza_html_a1511582ebfa3ae2fb818892acef4ee40"><div class="ttname"><a href="class_plansza.html#a1511582ebfa3ae2fb818892acef4ee40">Plansza::CzyMozliwyRuch</a></div><div class="ttdeci">bool CzyMozliwyRuch()</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:326</div></div>
-<div class="ttc" id="aclass_plansza_html_a19d05c0ceed69233869af7aa70abfb29"><div class="ttname"><a href="class_plansza.html#a19d05c0ceed69233869af7aa70abfb29">Plansza::stanPlanszy</a></div><div class="ttdeci">MaszynaStanow stanPlanszy</div><div class="ttdef"><b>Definition:</b> Plansza.h:33</div></div>
 <div class="ttc" id="aclass_plansza_html_a2de31c04880f6620fbdaa6a77343c5aa"><div class="ttname"><a href="class_plansza.html#a2de31c04880f6620fbdaa6a77343c5aa">Plansza::RzutKostki</a></div><div class="ttdeci">int RzutKostki()</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:179</div></div>
 <div class="ttc" id="aclass_plansza_html_a32a4d8116bf47694f18df57c6ea8d66f"><div class="ttname"><a href="class_plansza.html#a32a4d8116bf47694f18df57c6ea8d66f">Plansza::CzyDobryPionekWybrano</a></div><div class="ttdeci">bool CzyDobryPionekWybrano()</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:264</div></div>
 <div class="ttc" id="aclass_plansza_html_a91fd088379fedf1069d881fd661d4265"><div class="ttname"><a href="class_plansza.html#a91fd088379fedf1069d881fd661d4265">Plansza::znajdzPole</a></div><div class="ttdeci">Pole znajdzPole(KolorGracza kolor, int nr)</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:296</div></div>
 <div class="ttc" id="aclass_plansza_html_a9b066d0cc923a26a83a248f7c5edbbd0"><div class="ttname"><a href="class_plansza.html#a9b066d0cc923a26a83a248f7c5edbbd0">Plansza::ruchPionka</a></div><div class="ttdeci">bool ruchPionka()</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:192</div></div>
-<div class="ttc" id="aclass_plansza_html_ab409d774e7c68420936ab1e6a94737dc"><div class="ttname"><a href="class_plansza.html#ab409d774e7c68420936ab1e6a94737dc">Plansza::kliknietePionki</a></div><div class="ttdeci">uint16_t kliknietePionki</div><div class="ttdef"><b>Definition:</b> Plansza.h:29</div></div>
-<div class="ttc" id="aclass_plansza_html_aba99e0ccf40ea309377f70e85bfc19ab"><div class="ttname"><a href="class_plansza.html#aba99e0ccf40ea309377f70e85bfc19ab">Plansza::kolorAktywnegoGracza</a></div><div class="ttdeci">KolorGracza kolorAktywnegoGracza</div><div class="ttdef"><b>Definition:</b> Plansza.h:32</div></div>
-<div class="ttc" id="aclass_plansza_html_abbc4a4780ec260889e8da2d24a57de01"><div class="ttname"><a href="class_plansza.html#abbc4a4780ec260889e8da2d24a57de01">Plansza::ostatniRzutKostki</a></div><div class="ttdeci">int ostatniRzutKostki</div><div class="ttdef"><b>Definition:</b> Plansza.h:30</div></div>
 <div class="ttc" id="aclass_plansza_html_ae58ab9e9e0a12c39f36750a0faa2c100"><div class="ttname"><a href="class_plansza.html#ae58ab9e9e0a12c39f36750a0faa2c100">Plansza::Plansza</a></div><div class="ttdeci">Plansza()</div><div class="ttdef"><b>Definition:</b> Plansza.cpp:164</div></div>
 <div class="ttc" id="aclass_pole_html"><div class="ttname"><a href="class_pole.html">Pole</a></div><div class="ttdef"><b>Definition:</b> Pole.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->

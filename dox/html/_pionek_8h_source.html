@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Chinczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Pionek.h</title>
+<title>Chińczyk Ludo: Plik źródłowy CHINCZYK_LUDO/Pionek.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Chinczyk Ludo
+   <div id="projectname">Chińczyk Ludo
    &#160;<span id="projectnumber">0.8</span>
    </div>
   </td>
@@ -70,33 +70,27 @@ $(function() {
 <div class="title">Pionek.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_pionek_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gracz_8h.html">Gracz.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Gracz.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_pionek.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pionek.html">Pionek</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> graczId;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    KolorGracza graczId;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> nr;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_pionek.html#ad9af421fcc27f889130219d751d92770">   14</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_pionek.html#ad9af421fcc27f889130219d751d92770">mozliwoscRuchu</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> mozliwoscRuchu = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_pionek.html#a8dcc0fbdeac1bf8139926ae2710ff94f">   16</a></span>&#160;    <a class="code" href="class_pionek.html#a8dcc0fbdeac1bf8139926ae2710ff94f">Pionek</a>(<a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> graczId, <span class="keywordtype">int</span> nr) { this-&gt;graczId = graczId; this-&gt;nr = nr; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_pionek.html">Pionek</a>(KolorGracza graczId, <span class="keywordtype">int</span> nr) { this-&gt;graczId = graczId; this-&gt;nr = nr; }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_pionek.html#a87702dc2608e491968bab2b9ad9a73ce">   18</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a> <a class="code" href="class_pionek.html#a87702dc2608e491968bab2b9ad9a73ce">zwrocKolorGracza</a>() { <span class="keywordflow">return</span> graczId; }</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_pionek.html#a589834bcf9a02943b32c8723548afc54">   19</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_pionek.html#a589834bcf9a02943b32c8723548afc54">zwrocNr</a>() { <span class="keywordflow">return</span> nr; }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> KolorGracza zwrocKolorGracza() { <span class="keywordflow">return</span> graczId; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span> zwrocNr() { <span class="keywordflow">return</span> nr; }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_pionek.html#a39d6eabad39ebc0fc9afc08a622e1724">operator ==</a>(<span class="keyword">const</span> <a class="code" href="class_pionek.html">Pionek</a> p);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="ttc" id="a_gracz_8h_html"><div class="ttname"><a href="_gracz_8h.html">Gracz.h</a></div></div>
-<div class="ttc" id="a_gracz_8h_html_a824181e81636a42a2513d225a3573fc3"><div class="ttname"><a href="_gracz_8h.html#a824181e81636a42a2513d225a3573fc3">KolorGracza</a></div><div class="ttdeci">KolorGracza</div><div class="ttdef"><b>Definition:</b> Gracz.h:7</div></div>
 <div class="ttc" id="aclass_pionek_html"><div class="ttname"><a href="class_pionek.html">Pionek</a></div><div class="ttdef"><b>Definition:</b> Pionek.h:8</div></div>
 <div class="ttc" id="aclass_pionek_html_a39d6eabad39ebc0fc9afc08a622e1724"><div class="ttname"><a href="class_pionek.html#a39d6eabad39ebc0fc9afc08a622e1724">Pionek::operator==</a></div><div class="ttdeci">bool operator==(const Pionek p)</div><div class="ttdef"><b>Definition:</b> Pionek.cpp:9</div></div>
-<div class="ttc" id="aclass_pionek_html_a589834bcf9a02943b32c8723548afc54"><div class="ttname"><a href="class_pionek.html#a589834bcf9a02943b32c8723548afc54">Pionek::zwrocNr</a></div><div class="ttdeci">const int zwrocNr()</div><div class="ttdef"><b>Definition:</b> Pionek.h:19</div></div>
-<div class="ttc" id="aclass_pionek_html_a87702dc2608e491968bab2b9ad9a73ce"><div class="ttname"><a href="class_pionek.html#a87702dc2608e491968bab2b9ad9a73ce">Pionek::zwrocKolorGracza</a></div><div class="ttdeci">const KolorGracza zwrocKolorGracza()</div><div class="ttdef"><b>Definition:</b> Pionek.h:18</div></div>
-<div class="ttc" id="aclass_pionek_html_a8dcc0fbdeac1bf8139926ae2710ff94f"><div class="ttname"><a href="class_pionek.html#a8dcc0fbdeac1bf8139926ae2710ff94f">Pionek::Pionek</a></div><div class="ttdeci">Pionek(KolorGracza graczId, int nr)</div><div class="ttdef"><b>Definition:</b> Pionek.h:16</div></div>
-<div class="ttc" id="aclass_pionek_html_ad9af421fcc27f889130219d751d92770"><div class="ttname"><a href="class_pionek.html#ad9af421fcc27f889130219d751d92770">Pionek::mozliwoscRuchu</a></div><div class="ttdeci">bool mozliwoscRuchu</div><div class="ttdef"><b>Definition:</b> Pionek.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

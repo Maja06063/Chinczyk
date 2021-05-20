@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_3d_112',['operator==',['../class_pionek.html#a39d6eabad39ebc0fc9afc08a622e1724',1,'Pionek']]]
+  ['znajdzpole_31',['znajdzPole',['../class_plansza.html#a91fd088379fedf1069d881fd661d4265',1,'Plansza']]]
 ];
