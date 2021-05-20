@@ -3,7 +3,7 @@
 #include <vector>
 
 /// <summary>
-/// 
+/// Klasa Pole zawiera atrybuty oraz metody niezbêdne do zarz¹dzania pojedynczym polem planszy gry.
 /// </summary>
 class Pole
 {

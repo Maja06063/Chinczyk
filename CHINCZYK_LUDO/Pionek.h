@@ -2,7 +2,7 @@
 #include "Gracz.h"
 
 /// <summary>
-/// 
+/// Klasa Pionek zawieraj¹ca potrzebne metody oraz atrybuty u³atwiaj¹ce zarz¹dzanie pionkiem w grze.
 /// </summary>
 class Pionek
 {

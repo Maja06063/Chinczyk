@@ -9,7 +9,6 @@
 #include <ctime>
 #include <iostream>
 #include <cstdlib>
-// w tym miejscu dodaj nagłówki, które mają być wstępnie kompilowane
 
 using std::cout;
 

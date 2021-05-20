@@ -1,7 +1,7 @@
 #pragma once
 
 /// <summary>
-/// 
+/// Klasa numerowana KolorGracza zawieraj¹ca dostêpne kolory.
 /// </summary>
 enum class KolorGracza
 {	
@@ -16,7 +16,7 @@ enum class KolorGracza
 /****************************************************************************************/
 
 /// <summary>
-/// 
+/// Klasa gracz zawieraj¹ca atrybuty oraz metody s³u¿¹ce do obs³ugi gracza w grze.
 /// </summary>
 class Gracz
 {

@@ -8,7 +8,7 @@ using namespace System::Runtime::InteropServices;
 namespace CHINCZYKLUDO {
 
 	/// <summary>
-	/// 
+	/// G³ówna pêtla gry dzia³aj¹ca na osobnym w¹tku - wykonuje siê równolegle z obs³ug¹ planszy.
 	/// </summary>
 	void KontrolaWidoku::PetlaGry()
 	{
@@ -28,7 +28,7 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na rzut kostk¹ przez odpowiedniego gracza.
 	/// </summary>
 	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut()
 	{
@@ -45,9 +45,9 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na wybrania pionka wykonuj¹cego ruch przez gracza.
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>true - pionek wybrany prawid³owo, false - Brak mo¿liwoœci ruchu - nie ma sensu czekaæ na wybór pionka</returns>
 	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
 		if (!plansza->CzyMozliwyRuch())
@@ -67,7 +67,7 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// 
+	/// Fragment pêtli gry wystêpuj¹cy podczas trwania ruchu pionka.
 	/// </summary>
 	/// <returns>true - Nale¿y powtórzyæ wybór pionka, false - ruch zakoñczony</returns>
 	bool KontrolaWidoku::PetlaGryTrwaRuch()

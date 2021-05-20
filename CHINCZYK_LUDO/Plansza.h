@@ -7,7 +7,7 @@
 #include "MaszynaStanów.h"
 
 /// <summary>
-/// 
+/// Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry.
 /// </summary>
 class Plansza
 {
