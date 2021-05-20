@@ -1,6 +1,9 @@
 #pragma once
 #include"Plansza.h"
 
+/// <summary>
+/// Namespace Chinczykludo zawiera klasê zajmuj¹c¹ siê wielow¹tkow¹ obs³ug¹ okna programu oraz pêtli gry.
+/// </summary>
 namespace CHINCZYKLUDO {
 
 	using namespace System;
@@ -12,7 +15,7 @@ namespace CHINCZYKLUDO {
 	using namespace System::Threading;
 
 	/// <summary>
-	/// Podsumowanie informacji o Kontrolowa_widoku
+	/// Klasa KontrolaWidoku odpowiada za wyœwietlanie i obs³ugê okna gry.
 	/// </summary>
 	public ref class KontrolaWidoku : public System::Windows::Forms::Form
 	{
@@ -23,9 +26,6 @@ namespace CHINCZYKLUDO {
 		{
 			InitializeComponent();
 			srand((unsigned int)time(0));
-			//
-			//TODO: W tym miejscu dodaj kod konstruktora
-			//
 		}
 
 	protected:
