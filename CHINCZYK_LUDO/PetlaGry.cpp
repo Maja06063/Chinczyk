@@ -30,10 +30,11 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na rzut kostk¹ przez odpowiedniego gracza.
 	/// </summary>
-	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut()
+	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut() //[CHANGED]
 	{
+		std::string obecny_gracz = msclr::interop::marshal_as<std::string>(KolorNaString(plansza->kolorAktywnegoGracza));
 		cout << "Teraz gracz "
-			<< msclr::interop::marshal_as<std::string>(KolorNaString(plansza->kolorAktywnegoGracza))
+			<< obecny_gracz
 			<< " niech rzuci kostka!\n";
 
 		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
@@ -50,8 +51,6 @@ namespace CHINCZYKLUDO {
 	/// <returns>true - pionek wybrany prawid³owo, false - Brak mo¿liwoœci ruchu - nie ma sensu czekaæ na wybór pionka</returns>
 	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
-		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
-
 		if (!plansza->CzyMozliwyRuch())
 		{
 			cout << "Brak mozliwosci ruchu\n";

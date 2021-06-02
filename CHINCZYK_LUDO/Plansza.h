@@ -5,7 +5,6 @@
 #include "Baza.h"
 #include "Domek.h"
 #include "MaszynaStanów.h"
-#include <algorithm>
 
 /// <summary>
 /// Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry.
@@ -40,6 +39,9 @@ public:
 	bool CzyMozliwyRuch();
 
 	Pole znajdzPole(KolorGracza kolor, int nr);
+	Baza* znajdzWolnaBaze(KolorGracza kolor);
+
+	int getIdPolaStartowego(KolorGracza kolor);
 
 	int RzutKostki();
 };

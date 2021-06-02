@@ -9,9 +9,11 @@ class Pionek
 	KolorGracza graczId;
 	int nr;
 
+
 public:
 
 	bool mozliwoscRuchu = false;
+	int przebytePola = 0;
 
 	Pionek(KolorGracza graczId, int nr) { this->graczId = graczId; this->nr = nr; }
 

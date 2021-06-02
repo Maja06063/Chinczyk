@@ -23,8 +23,14 @@ char* Pole::ToString()
 {
 	char dane[100];
 
-	sprintf_s(dane, "\nJestem polem %dx%d, pionek nr %d\n",
+	sprintf_s(dane, "\nJestem polem %dx%dy, pionek nr %d\n",
 		x, y, pionkiNaPolu.at(0).zwrocNr());
 
 	return dane;
 }
+
+bool Pole::operator==(const Pole p)
+{
+	return (this->x == p.x && this->y == p.y); //[ADDED]
+}
+

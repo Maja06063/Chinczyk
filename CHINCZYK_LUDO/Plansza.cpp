@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Plansza.h"
+#include <algorithm>
 
 /****************************************************************************************/
 
@@ -63,7 +64,7 @@ void Plansza::UstawZwyklePola()
 	
 	for (; i < 24; i++)
 	{
-		Pole pole(6, 23 - i);
+		Pole pole(6, 18 - (i + 6) + 11);			//mo¿liwy b³¹d
 		polaPlanszy.push_back(pole);
 	}
 
@@ -196,7 +197,13 @@ int Plansza::RzutKostki()
 /// </summary>
 /// <param name="">true - Ruch wykonany, false - ruch niewykonany.</param>
 bool Plansza::ruchPionka()
-{
+{	
+	cout << "Pola domkow - ";
+	for (int x = 0; x < polaDomkow.size(); x++) {
+		cout << polaDomkow[x].pozX() << ":" << polaDomkow[x].pozY();
+		cout << ", ";
+	}
+	cout << "\n";
 	uint16_t nr = kliknietePionki;
 
 	while (!(nr & 0xf)) // liczba & 0xf to po prostu wydzielenie 4 bitów liczby.
@@ -213,23 +220,32 @@ bool Plansza::ruchPionka()
 	}
 
 	
-	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka);
+	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka); //[THINK] takie rzeczy generalnie powinny byæ pointerami, a nie tworzeniem nowych obiektów
 	bool czyWBazie = false;
+	bool czyWDomku = false;
 
 	for (Baza& baza : polaBazy)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
 
-		if (baza.pionkiNaPolu.at(0) == pionekWykonujacyRuch)
-		{
-			if (ostatniRzutKostki != 6) return false;
+		if (std::find(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch) != baza.pionkiNaPolu.end()){
 			czyWBazie = true;
-			baza.pionkiNaPolu.pop_back();
+			baza.pionkiNaPolu.erase(std::remove(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch), baza.pionkiNaPolu.end());
+		}
+	}
+
+	for (Domek& domek : polaDomkow) {
+		if (domek.pionkiNaPolu.empty()) continue;
+
+		if (std::find(domek.pionkiNaPolu.begin(), domek.pionkiNaPolu.end(), pionekWykonujacyRuch) != domek.pionkiNaPolu.end()) {
+			czyWDomku = true;
+			domek.pionkiNaPolu.erase(std::remove(domek.pionkiNaPolu.begin(), domek.pionkiNaPolu.end(), pionekWykonujacyRuch), domek.pionkiNaPolu.end());
 		}
 	}
 
 	if (czyWBazie)
 	{
+		if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
 
 		for (Pole& pole : polaPlanszy)
 		{
@@ -242,19 +258,78 @@ bool Plansza::ruchPionka()
 	}
 	else {
 
-		int i;
-		for (i = 0; i < polaPlanszy.size(); i++)
-		{
-			if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
-
-			if (polaPlanszy.at(i).pionkiNaPolu.at(0) == pionekWykonujacyRuch)
+		if (!czyWDomku) {
+			int i;
+			for (i = 0; i < polaPlanszy.size(); i++)
 			{
-				polaPlanszy.at(i).pionkiNaPolu.pop_back();
-				break;
+				if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
+
+				if (std::find(polaPlanszy.at(i).pionkiNaPolu.begin(), polaPlanszy.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch) != polaPlanszy.at(i).pionkiNaPolu.end())
+				{
+					polaPlanszy.at(i).pionkiNaPolu.erase(std::remove(polaPlanszy.at(i).pionkiNaPolu.begin(), polaPlanszy.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch), polaPlanszy.at(i).pionkiNaPolu.end());
+					break;
+				}
 			}
+
+			int numer_pola = (i + ostatniRzutKostki) % polaPlanszy.size();
+
+			std::vector<Pionek>* pionki_na_tym_polu = &polaPlanszy.at(numer_pola).pionkiNaPolu;
+			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola  != 26 && numer_pola != 39) {
+				for (int j = 0; j < pionki_na_tym_polu->size(); i++) {
+					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza()) {
+						Baza* wolna_baza = znajdzWolnaBaze(pionki_na_tym_polu->at(j).zwrocKolorGracza());
+						wolna_baza->pionkiNaPolu.push_back(pionki_na_tym_polu->at(j));
+						pionki_na_tym_polu->erase(pionki_na_tym_polu->begin() + j);
+					}
+				}
+			}
+
+			/*int pole_startowe = getIdPolaStartowego(pionekWykonujacyRuch.zwrocKolorGracza());
+			if (pionekWykonujacyRuch.przebytePola + ostatniRzutKostki) {
+				int ile_krokow_w_bazie = numer_pola - (pole_startowe - 1);
+				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::czerwony){
+					polaBazy.at(3 + ile_krokow_w_bazie).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				}
+				else if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zielony) {
+					polaBazy.at(8 + ile_krokow_w_bazie).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				}
+				else if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zolty) {
+					polaBazy.at(13 + ile_krokow_w_bazie).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				}
+				else if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::niebieski) {
+					polaBazy.at(18 + ile_krokow_w_bazie).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				}
+				return true;
+			}*/
+
+			polaPlanszy.at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch);//[ADDED]
+			//pionekWykonujacyRuch.przebytePola += ostatniRzutKostki;
+			std::cout << "Ruch pionka na numer pola: " << numer_pola << std::endl;
 		}
 
-		polaPlanszy.at((i + ostatniRzutKostki) % polaPlanszy.size()).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+		else {
+			int i;
+			for (i = 0; i < polaDomkow.size(); i++)
+			{
+				if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
+
+				if (std::find(polaPlanszy.at(i).pionkiNaPolu.begin(), polaPlanszy.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch) != polaPlanszy.at(i).pionkiNaPolu.end())
+				{
+					polaDomkow.at(i).pionkiNaPolu.erase(std::remove(polaDomkow.at(i).pionkiNaPolu.begin(), polaDomkow.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch), polaDomkow.at(i).pionkiNaPolu.end());
+					break;
+				}
+			}
+
+			int numer_pola = (i + ostatniRzutKostki) % polaPlanszy.size();
+			polaBazy.at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch); //[ADDED]
+			std::cout << "Ruch pionka na numer pola: " << numer_pola << std::endl;
+			
+		}
+
+
+		
+
+
 	}
 
 
@@ -307,7 +382,7 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
 
-		if (std::count(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), szukanyPionek) > 0)
+		if (baza.pionkiNaPolu.at(0) == szukanyPionek)
 		{
 			return baza;
 		}
@@ -317,8 +392,12 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 	{
 		if (pole.pionkiNaPolu.empty()) continue;
 
-		if (std::count(pole.pionkiNaPolu.begin(), pole.pionkiNaPolu.end(), szukanyPionek) > 0)
-		{
+		//if (pole.pionkiNaPolu.at(0) == szukanyPionek) //[BUG] tutaj jest coœ dziwnego - jeœli pionek wchodzi na pole jako drugi to wrzuca go na pole(0,0)
+		//{
+		//	return pole;
+		//}
+
+		if (std::find(pole.pionkiNaPolu.begin(), pole.pionkiNaPolu.end(), szukanyPionek) != pole.pionkiNaPolu.end()) { //[ADDED] to bêdzie zwracaæ true jeœli pionek wejdzie w dowolnej kolejnosci
 			return pole;
 		}
 	}
@@ -337,7 +416,7 @@ bool Plansza::CzyMozliwyRuch()
 {
 	int pionkiWBazie = 0;
 
-	if (ostatniRzutKostki == 6) return true;
+	if (ostatniRzutKostki == 1 || ostatniRzutKostki == 6) return true;
 
 	for (Baza baza : polaBazy)
 	{
@@ -350,4 +429,81 @@ bool Plansza::CzyMozliwyRuch()
 	}
 
 	return (pionkiWBazie != 4);
+}
+
+Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
+	int i = 0;
+	for (;i < polaBazy.size(); i++) {
+		if (kolor == KolorGracza::czerwony) {
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+		//sprawdzanie baz zielonego
+		if (kolor == KolorGracza::zielony) {
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+
+		//sprawdzanie baz zoltego
+		if (kolor == KolorGracza::zolty) {
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+
+		//sprawdzanie baz niebieskiego
+		if (kolor == KolorGracza::niebieski) {
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+	}
+
+
+	return &polaBazy[i];
+}
+
+int Plansza::getIdPolaStartowego(KolorGracza kolor) {
+	if (kolor == KolorGracza::czerwony) return 50;
+	if (kolor == KolorGracza::zielony) return 37;
+	if (kolor == KolorGracza::zolty) return 24;
+	if (kolor == KolorGracza::niebieski) return 11;
 }
