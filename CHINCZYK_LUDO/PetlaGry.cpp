@@ -50,6 +50,8 @@ namespace CHINCZYKLUDO {
 	/// <returns>true - pionek wybrany prawid³owo, false - Brak mo¿liwoœci ruchu - nie ma sensu czekaæ na wybór pionka</returns>
 	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
+		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
+
 		if (!plansza->CzyMozliwyRuch())
 		{
 			cout << "Brak mozliwosci ruchu\n";

@@ -222,6 +222,7 @@ bool Plansza::ruchPionka()
 
 		if (baza.pionkiNaPolu.at(0) == pionekWykonujacyRuch)
 		{
+			if (ostatniRzutKostki != 6) return false;
 			czyWBazie = true;
 			baza.pionkiNaPolu.pop_back();
 		}
@@ -229,7 +230,6 @@ bool Plansza::ruchPionka()
 
 	if (czyWBazie)
 	{
-		if (ostatniRzutKostki != 6) return false;
 
 		for (Pole& pole : polaPlanszy)
 		{
