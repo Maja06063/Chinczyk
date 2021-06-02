@@ -465,6 +465,9 @@ namespace CHINCZYKLUDO {
 
 		int sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole); //[ADDED]
 
+		int sprawdzCzyGraZakonczona();
+		void zakonczGre(int wygrany);
+
 
 		/***************************************************************************************************************/
 

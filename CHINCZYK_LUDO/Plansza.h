@@ -14,7 +14,7 @@ class Plansza
 	Gracz gracze[4];
 	
 	std::vector<Baza> polaBazy;
-	std::vector<Domek> polaDomkow;
+	std::vector<std::vector<Domek>> polaDomkow;
 	std::vector<Pole> polaPlanszy;
 
 	void UstawGraczy();
@@ -42,6 +42,8 @@ public:
 	Baza* znajdzWolnaBaze(KolorGracza kolor);
 
 	int getIdPolaStartowego(KolorGracza kolor);
+
+	std::vector<std::vector<Domek>>* getPolaDomkowPtr() { return &polaDomkow; }
 
 	int RzutKostki();
 };
