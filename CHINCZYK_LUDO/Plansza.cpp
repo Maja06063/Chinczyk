@@ -63,7 +63,7 @@ void Plansza::UstawZwyklePola()
 	
 	for (; i < 24; i++)
 	{
-		Pole pole(6, 18 - (i + 6));
+		Pole pole(6, 23 - i);
 		polaPlanszy.push_back(pole);
 	}
 
