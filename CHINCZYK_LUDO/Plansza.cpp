@@ -229,7 +229,7 @@ bool Plansza::ruchPionka()
 
 	if (czyWBazie)
 	{
-		if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
+		if (ostatniRzutKostki != 6) return false;
 
 		for (Pole& pole : polaPlanszy)
 		{
