@@ -337,7 +337,7 @@ bool Plansza::CzyMozliwyRuch()
 {
 	int pionkiWBazie = 0;
 
-	if (ostatniRzutKostki == 1 || ostatniRzutKostki == 6) return true;
+	if (ostatniRzutKostki == 6) return true;
 
 	for (Baza baza : polaBazy)
 	{
