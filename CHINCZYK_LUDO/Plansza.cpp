@@ -307,7 +307,7 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
 
-		if (baza.pionkiNaPolu.at(0) == szukanyPionek)
+		if (std::count(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), szukanyPionek) > 0)
 		{
 			return baza;
 		}
@@ -317,7 +317,7 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 	{
 		if (pole.pionkiNaPolu.empty()) continue;
 
-		if (pole.pionkiNaPolu.at(0) == szukanyPionek)
+		if (std::count(pole.pionkiNaPolu.begin(), pole.pionkiNaPolu.end(), szukanyPionek) > 0)
 		{
 			return pole;
 		}

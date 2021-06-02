@@ -5,6 +5,7 @@
 #include "Baza.h"
 #include "Domek.h"
 #include "MaszynaStanów.h"
+#include <algorithm>
 
 /// <summary>
 /// Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry.
