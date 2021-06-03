@@ -73,7 +73,7 @@ void Plansza::UstawZwyklePola()
 	
 	for (; i < 24; i++)
 	{
-		Pole pole(6, 23 - i);			//mo¿liwy b³¹d
+		Pole pole(6, 23 - i);			//mo¿liwy b³¹d-naprawione
 		polaPlanszy.push_back(pole);	//18 - (i + 6) + 11
 	}
 
