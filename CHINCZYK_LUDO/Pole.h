@@ -28,4 +28,5 @@ public:
 	int pozY() { return y; }
 
 	char* ToString();
+	bool operator ==(const Pole p); //[ADDED]
 };

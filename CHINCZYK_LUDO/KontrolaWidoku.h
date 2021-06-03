@@ -1,5 +1,6 @@
 #pragma once
 #include"Plansza.h"
+#include <vector>
 
 /// <summary>
 /// Namespace CHINCZYKLUDO zawiera klasê zajmuj¹c¹ siê wielow¹tkow¹ obs³ug¹ okna programu oraz pêtli gry.
@@ -451,7 +452,7 @@ namespace CHINCZYKLUDO {
 		/***************************************************************************************************************/
 	private:
 
-		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole);
+		void UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole, int ktory_pionek);
 
 		void PrzypiszIkonyPionkow();
 		void AktualizujIkonyPionkow();
@@ -461,6 +462,12 @@ namespace CHINCZYKLUDO {
 		void Przycisk_kostka_Click(System::Object^ sender, System::EventArgs^ e);
 
 		void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
+
+		int sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole); //[ADDED]
+
+		int sprawdzCzyGraZakonczona();
+		void zakonczGre(int wygrany);
+
 
 		/***************************************************************************************************************/
 

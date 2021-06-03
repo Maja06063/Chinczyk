@@ -5,7 +5,6 @@
 #include "Baza.h"
 #include "Domek.h"
 #include "MaszynaStanów.h"
-#include <algorithm>
 
 /// <summary>
 /// Klasa Plansza zawiera wektory powi¹zane z polami wystêpuj¹cymi w grze oraz posiada metody zarz¹dzaj¹ce logik¹ gry.
@@ -15,7 +14,7 @@ class Plansza
 	Gracz gracze[4];
 	
 	std::vector<Baza> polaBazy;
-	std::vector<Domek> polaDomkow;
+	std::vector<std::vector<Domek>> polaDomkow;
 	std::vector<Pole> polaPlanszy;
 
 	void UstawGraczy();
@@ -40,6 +39,11 @@ public:
 	bool CzyMozliwyRuch();
 
 	Pole znajdzPole(KolorGracza kolor, int nr);
+	Baza* znajdzWolnaBaze(KolorGracza kolor);
+
+	int getIdPolaStartowego(KolorGracza kolor);
+
+	std::vector<std::vector<Domek>>* getPolaDomkowPtr() { return &polaDomkow; }
 
 	int RzutKostki();
 };

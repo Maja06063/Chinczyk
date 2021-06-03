@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "KontrolaWidoku.h"
+#include <msclr\marshal_cppstd.h>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 namespace CHINCZYKLUDO {
@@ -11,12 +14,20 @@ namespace CHINCZYKLUDO {
 	/// </summary>
 	/// <param name="ikonaPionka">Zarz¹dzana referencja na pionek, który nale¿y ustawiæ</param>
 	/// <param name="pole">Pole na którym ustawiæ pionek</param>
-	void KontrolaWidoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole)
-	{
+	void KontrolaWidoku::UstawPolozenieIkonyPionka(System::Windows::Forms::PictureBox^ ikonaPionka, Pole pole, int ktory_pionek) //[CHANGED]
+		//[GOOD]
+	{	
 		int x = pole.pozX();
 		int y = pole.pozY();
+		cout << "Polozenie pionka: " << x << ":" << y << endl;
 
-		ikonaPionka->Location = System::Drawing::Point(x * 32, y * 35);
+		//[TODO] ustawic to w taki sposob aby dodatkowe pionki rysowaly sie w gore lub w bok zaleznie od 
+		// tego jak w danym polu pasuje lepiej
+		x = x * 32 + (ktory_pionek - 1) * 5;
+		y = y * 35;
+
+		
+		ikonaPionka->Location = System::Drawing::Point(x, y);
 	}
 
 	/****************************************************************************************/
@@ -62,29 +73,108 @@ namespace CHINCZYKLUDO {
 		Przycisk_kostka->Enabled = true;
 		aktualnyGraczTekst->Text = KolorNaString(plansza->kolorAktywnegoGracza);
 
-		// Aktualizacja ikon pionków czerwonych:
-		UstawPolozenieIkonyPionka(pionek_c1, plansza->znajdzPole(KolorGracza::czerwony, 1));
-		UstawPolozenieIkonyPionka(pionek_c2, plansza->znajdzPole(KolorGracza::czerwony, 2));
-		UstawPolozenieIkonyPionka(pionek_c3, plansza->znajdzPole(KolorGracza::czerwony, 3));
-		UstawPolozenieIkonyPionka(pionek_c4, plansza->znajdzPole(KolorGracza::czerwony, 4));
+		//[CHANGED] tutaj mozna dodac rysowanie pionkow na jednym polu
+		//[GOOD]
 
-		// Aktualizacja ikon pionków zielonych:
-		UstawPolozenieIkonyPionka(pionek_zi1, plansza->znajdzPole(KolorGracza::zielony, 1));
-		UstawPolozenieIkonyPionka(pionek_zi2, plansza->znajdzPole(KolorGracza::zielony, 2));
-		UstawPolozenieIkonyPionka(pionek_zi3, plansza->znajdzPole(KolorGracza::zielony, 3));
-		UstawPolozenieIkonyPionka(pionek_zi4, plansza->znajdzPole(KolorGracza::zielony, 4));
+		std::vector<Pole> pola;
+		std::vector<int> ile_pionkow;
+		Pole pole;
+		int ilosc_pionkow;
 
-		// Aktualizacja ikon pionków ¿ó³tych:
-		UstawPolozenieIkonyPionka(pionek_zt1, plansza->znajdzPole(KolorGracza::zolty, 1));
-		UstawPolozenieIkonyPionka(pionek_zt2, plansza->znajdzPole(KolorGracza::zolty, 2));
-		UstawPolozenieIkonyPionka(pionek_zt3, plansza->znajdzPole(KolorGracza::zolty, 3));
-		UstawPolozenieIkonyPionka(pionek_zt4, plansza->znajdzPole(KolorGracza::zolty, 4));
+		//czerwone
+		pole = plansza->znajdzPole(KolorGracza::czerwony, 1);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_c1, pole, ilosc_pionkow);
 
-		// Aktualizacja ikon pionków niebieskich:
-		UstawPolozenieIkonyPionka(pionek_n1, plansza->znajdzPole(KolorGracza::niebieski, 1));
-		UstawPolozenieIkonyPionka(pionek_n2, plansza->znajdzPole(KolorGracza::niebieski, 2));
-		UstawPolozenieIkonyPionka(pionek_n3, plansza->znajdzPole(KolorGracza::niebieski, 3));
-		UstawPolozenieIkonyPionka(pionek_n4, plansza->znajdzPole(KolorGracza::niebieski, 4));
+		pole = plansza->znajdzPole(KolorGracza::czerwony, 2);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_c2, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::czerwony, 3);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_c3, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::czerwony, 4);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_c4, pole, ilosc_pionkow);
+
+
+		//zielone
+		pole = plansza->znajdzPole(KolorGracza::zielony, 1);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zi1, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zielony, 2);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zi2, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zielony, 3);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zi3, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zielony, 4);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zi4, pole, ilosc_pionkow);
+
+		//zolte
+		pole = plansza->znajdzPole(KolorGracza::zolty, 1);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zt1, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zolty, 2);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zt2, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zolty, 3);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zt3, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::zolty, 4);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_zt4, pole, ilosc_pionkow);
+
+		//niebieskie
+
+		pole = plansza->znajdzPole(KolorGracza::niebieski, 1);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_n1, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::niebieski, 2);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_n2, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::niebieski, 3);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_n3, pole, ilosc_pionkow);
+
+		pole = plansza->znajdzPole(KolorGracza::niebieski, 4);
+		ilosc_pionkow = sprawdzIloscPionkow(pola, ile_pionkow, pole);
+		UstawPolozenieIkonyPionka(pionek_n4, pole, ilosc_pionkow);
+
+
+		//// Aktualizacja ikon pionków czerwonych:
+		//UstawPolozenieIkonyPionka(pionek_c1, plansza->znajdzPole(KolorGracza::czerwony, 1));
+		//UstawPolozenieIkonyPionka(pionek_c2, plansza->znajdzPole(KolorGracza::czerwony, 2));
+		//UstawPolozenieIkonyPionka(pionek_c3, plansza->znajdzPole(KolorGracza::czerwony, 3));
+		//UstawPolozenieIkonyPionka(pionek_c4, plansza->znajdzPole(KolorGracza::czerwony, 4));
+
+		//// Aktualizacja ikon pionków zielonych:
+		//UstawPolozenieIkonyPionka(pionek_zi1, plansza->znajdzPole(KolorGracza::zielony, 1));
+		//UstawPolozenieIkonyPionka(pionek_zi2, plansza->znajdzPole(KolorGracza::zielony, 2));
+		//UstawPolozenieIkonyPionka(pionek_zi3, plansza->znajdzPole(KolorGracza::zielony, 3));
+		//UstawPolozenieIkonyPionka(pionek_zi4, plansza->znajdzPole(KolorGracza::zielony, 4));
+
+		//// Aktualizacja ikon pionków ¿ó³tych:
+		//UstawPolozenieIkonyPionka(pionek_zt1, plansza->znajdzPole(KolorGracza::zolty, 1));
+		//UstawPolozenieIkonyPionka(pionek_zt2, plansza->znajdzPole(KolorGracza::zolty, 2));
+		//UstawPolozenieIkonyPionka(pionek_zt3, plansza->znajdzPole(KolorGracza::zolty, 3));
+		//UstawPolozenieIkonyPionka(pionek_zt4, plansza->znajdzPole(KolorGracza::zolty, 4));
+
+		//// Aktualizacja ikon pionków niebieskich:
+		//UstawPolozenieIkonyPionka(pionek_n1, plansza->znajdzPole(KolorGracza::niebieski, 1));
+		//UstawPolozenieIkonyPionka(pionek_n2, plansza->znajdzPole(KolorGracza::niebieski, 2));
+		//UstawPolozenieIkonyPionka(pionek_n3, plansza->znajdzPole(KolorGracza::niebieski, 3));
+		//UstawPolozenieIkonyPionka(pionek_n4, plansza->znajdzPole(KolorGracza::niebieski, 4));
 	}
 
 	/****************************************************************************************/
@@ -137,4 +227,18 @@ namespace CHINCZYKLUDO {
 		Thread^ watekPetliGry = gcnew Thread(gcnew ThreadStart(this, &KontrolaWidoku::PetlaGry));
 		watekPetliGry->Start();
 	}
+
+	int KontrolaWidoku::sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole) { //[ADDED]
+		//[GOOD]
+		for (int i = 0; i < pola.size(); i++) {
+			if (pola[i] == pole) {
+				ilosc_pionkow[i]++;
+				return ilosc_pionkow[i];
+			}
+		}
+		pola.push_back(pole);
+		ilosc_pionkow.push_back(1);
+		return 1;
+	}
+
 }

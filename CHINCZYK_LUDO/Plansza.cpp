@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Plansza.h"
+#include <algorithm>
 
 /****************************************************************************************/
 
@@ -24,6 +25,15 @@ void Plansza::UstawPola()
 	UstawBazy();
 	UstawDomki();
 	UstawZwyklePola();
+	
+	int dlugosc1 = polaDomkow.size();
+	int dlugosc2 = polaDomkow[0].size();
+	for (int i = 0; i < dlugosc1; i++) {
+		for (int j = 0; j < dlugosc2; j++) {
+			cout << polaDomkow[i][j].pozX() << ":" << polaDomkow[i][j].pozY() << std::endl;
+		}
+
+	}
 }
 
 /****************************************************************************************/
@@ -63,8 +73,8 @@ void Plansza::UstawZwyklePola()
 	
 	for (; i < 24; i++)
 	{
-		Pole pole(6, 23 - i);
-		polaPlanszy.push_back(pole);
+		Pole pole(6, 23 - i);			//mo¿liwy b³¹d-naprawione
+		polaPlanszy.push_back(pole);	//18 - (i + 6) + 11
 	}
 
 	for (; i < 25; i++)
@@ -101,7 +111,7 @@ void Plansza::UstawZwyklePola()
 
 	for (; i < 50; i++)
 	{
-		Pole pole(8, i - 34);
+		Pole pole(8, i - 35);	
 		polaPlanszy.push_back(pole);
 	}
 
@@ -137,7 +147,6 @@ void Plansza::UstawBazy()
 				Baza poleBazy(x, y);
 				Pionek pionek(KolorGracza(i), nr);
 				nr++;
-
 				poleBazy.pionkiNaPolu.push_back(pionek);
 
 				polaBazy.push_back(poleBazy);
@@ -154,7 +163,51 @@ void Plansza::UstawBazy()
 /// </summary>
 void Plansza::UstawDomki()
 {
+	std::vector<Domek> w1;
+	std::vector<Domek> w2;
+	std::vector<Domek> w3;
+	std::vector<Domek> w4;
+	polaDomkow.push_back(w1);
+	polaDomkow.push_back(w2);
+	polaDomkow.push_back(w3);
+	polaDomkow.push_back(w4);
+	int offsetX;
+	int offsetY;
+	for (int i = 0; i < 4; i++) {
 
+		//offset do czerwonych domkow
+		if (i == 0) {
+			offsetX = 7;
+			offsetY = 8;
+		}
+
+		//offset do zielonych domkow
+		if (i == 1) {
+			offsetX = 8;
+			offsetY = 7;
+		}
+
+		//offset do zoltych domkow
+		if (i == 2) {
+			offsetX = 7;
+			offsetY = 1;
+		}
+
+		//offset do niebieskich domkow
+		if (i == 3) {
+			offsetX = 1;
+			offsetY = 7;
+		}
+
+		for (int j = 0; j < 6; j++) {
+
+			if (i == 0) polaDomkow[i].push_back(Domek(offsetX, offsetY++));
+			if (i == 1) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
+			if (i == 2) polaDomkow[i].push_back(Domek(offsetX, offsetY++));
+			if (i == 3) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
+			
+		}
+	}
 }
 
 /****************************************************************************************/
@@ -196,7 +249,8 @@ int Plansza::RzutKostki()
 /// </summary>
 /// <param name="">true - Ruch wykonany, false - ruch niewykonany.</param>
 bool Plansza::ruchPionka()
-{
+{	
+	//ostatniRzutKostki = 6;
 	uint16_t nr = kliknietePionki;
 
 	while (!(nr & 0xf)) // liczba & 0xf to po prostu wydzielenie 4 bitów liczby.
@@ -213,24 +267,38 @@ bool Plansza::ruchPionka()
 	}
 
 	
-	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka);
+	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka); //[THINK] takie rzeczy generalnie powinny byæ pointerami, a nie tworzeniem nowych obiektów
 	bool czyWBazie = false;
+	bool czyWDomku = false;
+
 
 	for (Baza& baza : polaBazy)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
 
-		if (baza.pionkiNaPolu.at(0) == pionekWykonujacyRuch)
-		{
-			if (ostatniRzutKostki != 6) return false;
+		if (std::find(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch) != baza.pionkiNaPolu.end()){
+			
+			if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
+
 			czyWBazie = true;
-			baza.pionkiNaPolu.pop_back();
+			baza.pionkiNaPolu.erase(std::remove(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch), baza.pionkiNaPolu.end());
+		}
+	}
+
+
+	for (int i = 0; i < polaDomkow.size(); i++) {
+		for (int j = 0; j < polaDomkow[i].size(); j++) {
+			if (polaDomkow[i][j].pionkiNaPolu.empty()) continue;
+
+			if (std::find(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch) != polaDomkow[i][j].pionkiNaPolu.end()) {
+				czyWDomku = true;
+				polaDomkow[i][j].pionkiNaPolu.erase(std::remove(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch), polaDomkow[i][j].pionkiNaPolu.end());
+			}
 		}
 	}
 
 	if (czyWBazie)
 	{
-
 		for (Pole& pole : polaPlanszy)
 		{
 			if (pole.punktWejscia == kolorAktywnegoGracza)
@@ -242,21 +310,86 @@ bool Plansza::ruchPionka()
 	}
 	else {
 
-		int i;
-		for (i = 0; i < polaPlanszy.size(); i++)
-		{
-			if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
-
-			if (polaPlanszy.at(i).pionkiNaPolu.at(0) == pionekWykonujacyRuch)
+		if (!czyWDomku) {
+			int i;
+			for (i = 0; i < polaPlanszy.size(); i++)
 			{
-				polaPlanszy.at(i).pionkiNaPolu.pop_back();
-				break;
+				if (polaPlanszy.at(i).pionkiNaPolu.empty()) continue;
+
+				if (std::find(polaPlanszy.at(i).pionkiNaPolu.begin(), polaPlanszy.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch) != polaPlanszy.at(i).pionkiNaPolu.end())
+				{
+					polaPlanszy.at(i).pionkiNaPolu.erase(std::remove(polaPlanszy.at(i).pionkiNaPolu.begin(), polaPlanszy.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch), polaPlanszy.at(i).pionkiNaPolu.end());
+					break;
+				}
 			}
+
+			int numer_pola = (i + ostatniRzutKostki) % polaPlanszy.size();
+
+			std::vector<Pionek>* pionki_na_tym_polu = &polaPlanszy.at(numer_pola).pionkiNaPolu;
+			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola  != 26 && numer_pola != 39) {
+				for (int j = 0; j < pionki_na_tym_polu->size(); i++) {
+					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza()) {
+						Baza* wolna_baza = znajdzWolnaBaze(pionki_na_tym_polu->at(j).zwrocKolorGracza());
+						wolna_baza->pionkiNaPolu.push_back(pionki_na_tym_polu->at(j));
+						pionki_na_tym_polu->erase(pionki_na_tym_polu->begin() + j);
+					}
+				}
+			}
+
+			int numer_pola2 = i + ostatniRzutKostki;
+			int pole_startowe = getIdPolaStartowego(pionekWykonujacyRuch.zwrocKolorGracza());
+			if (i <= pole_startowe - 2 && numer_pola2 > pole_startowe - 2) {
+				int ile_krokow_w_domku = pole_startowe - i - 2;
+				
+				int numer_gracza = 0;
+				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zielony) numer_gracza = 1;
+				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zolty) numer_gracza = 2;
+				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::niebieski) numer_gracza = 3;
+
+				polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				int dlugosc = polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.size();
+				cout << "pole na ktore wstawiamy: " << polaDomkow[numer_gracza][ile_krokow_w_domku].pozX() << ":" << polaDomkow[numer_gracza][ile_krokow_w_domku].pozY() << std::endl;
+				return true;
+			}
+
+
+			polaPlanszy.at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch);//[ADDED]
+			std::cout << "Ruch pionka na numer pola: " << numer_pola << std::endl;
 		}
 
-		polaPlanszy.at((i + ostatniRzutKostki) % polaPlanszy.size()).pionkiNaPolu.push_back(pionekWykonujacyRuch);
-	}
+		else {
 
+			int numer_gracza = 0;
+			if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zielony) numer_gracza = 1;
+			if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zolty) numer_gracza = 2;
+			if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::niebieski) numer_gracza = 3;
+
+			int i = 0;
+			for (; i < polaDomkow[numer_gracza].size(); i++)
+			{
+				cout << "Czy pole w domku jest puste" << (polaDomkow[numer_gracza][i].pionkiNaPolu.empty()) << std::endl;
+				if (polaDomkow[numer_gracza][i].pionkiNaPolu.empty()) continue; //naprawic
+
+				/*for (int j = 0; j < polaDomkow[numer_gracza].size(); j++) {
+					cout << "Ilosc pionkow na polu: " << polaDomkow[numer_gracza][j].pionkiNaPolu.size();
+					if (polaDomkow[numer_gracza][j].pionkiNaPolu.size() == 0) continue;
+				}*/
+
+				if (std::find(polaDomkow[numer_gracza][i].pionkiNaPolu.begin(), polaDomkow[numer_gracza][i].pionkiNaPolu.end(), pionekWykonujacyRuch) != polaDomkow[numer_gracza][i].pionkiNaPolu.end())
+				{
+					polaDomkow[numer_gracza][i].pionkiNaPolu.erase(std::remove(polaDomkow[numer_gracza][i].pionkiNaPolu.begin(), polaDomkow[numer_gracza][i].pionkiNaPolu.end(), pionekWykonujacyRuch), polaDomkow[numer_gracza][i].pionkiNaPolu.end());
+					break;
+				}
+			}
+
+			if (i == 5) return true;
+
+			int numer_pola = (i + ostatniRzutKostki);
+			polaDomkow[numer_gracza][numer_pola].pionkiNaPolu.push_back(pionekWykonujacyRuch);
+
+		}
+
+	}
 
 	return true;
 }
@@ -303,11 +436,21 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 {
 	Pionek szukanyPionek(kolor, nr);
 
+	for (int i = 0; i < polaDomkow.size(); i++) {
+		for (int j = 0; j < polaDomkow[i].size(); j++) {
+			if (polaDomkow[i][j].pionkiNaPolu.empty()) continue;
+
+			if (std::find(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), szukanyPionek) != polaDomkow[i][j].pionkiNaPolu.end()) {
+				return polaDomkow[i][j];
+			}
+		}
+	}
+
 	for (Baza baza : polaBazy)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
 
-		if (std::count(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), szukanyPionek) > 0)
+		if (baza.pionkiNaPolu.at(0) == szukanyPionek)
 		{
 			return baza;
 		}
@@ -317,8 +460,12 @@ Pole Plansza::znajdzPole(KolorGracza kolor, int nr)
 	{
 		if (pole.pionkiNaPolu.empty()) continue;
 
-		if (std::count(pole.pionkiNaPolu.begin(), pole.pionkiNaPolu.end(), szukanyPionek) > 0)
-		{
+		//if (pole.pionkiNaPolu.at(0) == szukanyPionek) //[BUG] tutaj jest coœ dziwnego - jeœli pionek wchodzi na pole jako drugi to wrzuca go na pole(0,0)
+		//{
+		//	return pole;
+		//}
+
+		if (std::find(pole.pionkiNaPolu.begin(), pole.pionkiNaPolu.end(), szukanyPionek) != pole.pionkiNaPolu.end()) { //[ADDED] to bêdzie zwracaæ true jeœli pionek wejdzie w dowolnej kolejnosci
 			return pole;
 		}
 	}
@@ -337,7 +484,7 @@ bool Plansza::CzyMozliwyRuch()
 {
 	int pionkiWBazie = 0;
 
-	if (ostatniRzutKostki == 6) return true;
+	if (ostatniRzutKostki == 1 || ostatniRzutKostki == 6) return true;
 
 	for (Baza baza : polaBazy)
 	{
@@ -350,4 +497,81 @@ bool Plansza::CzyMozliwyRuch()
 	}
 
 	return (pionkiWBazie != 4);
+}
+
+Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
+	int i = 0;
+	for (;i < polaBazy.size(); i++) {
+		if (kolor == KolorGracza::czerwony) {
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+		//sprawdzanie baz zielonego
+		if (kolor == KolorGracza::zielony) {
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+
+		//sprawdzanie baz zoltego
+		if (kolor == KolorGracza::zolty) {
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+
+		//sprawdzanie baz niebieskiego
+		if (kolor == KolorGracza::niebieski) {
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+	}
+
+	if (i == 16) i = 15;
+	return &polaBazy[i];
+}
+
+int Plansza::getIdPolaStartowego(KolorGracza kolor) {
+	if (kolor == KolorGracza::czerwony) return 52;
+	if (kolor == KolorGracza::zielony) return 39;
+	if (kolor == KolorGracza::zolty) return 26;
+	if (kolor == KolorGracza::niebieski) return 13;
 }

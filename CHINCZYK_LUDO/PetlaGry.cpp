@@ -17,7 +17,13 @@ namespace CHINCZYKLUDO {
 			PetlaGryOczekiwanieNaRzut();
 
 			while(1)
-			{
+			{	
+				int wygrany = sprawdzCzyGraZakonczona();
+				if (wygrany != -1) {
+					zakonczGre(wygrany);
+					return;
+				}
+
 				if (!PetlaGryOczekiwanieNaWyborPionka()) break;
 				if (!PetlaGryTrwaRuch()) break;
 			}
@@ -30,10 +36,11 @@ namespace CHINCZYKLUDO {
 	/// <summary>
 	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na rzut kostk¹ przez odpowiedniego gracza.
 	/// </summary>
-	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut()
+	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut() //[CHANGED]
 	{
+		std::string obecny_gracz = msclr::interop::marshal_as<std::string>(KolorNaString(plansza->kolorAktywnegoGracza));
 		cout << "Teraz gracz "
-			<< msclr::interop::marshal_as<std::string>(KolorNaString(plansza->kolorAktywnegoGracza))
+			<< obecny_gracz
 			<< " niech rzuci kostka!\n";
 
 		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaRzut;
@@ -50,8 +57,6 @@ namespace CHINCZYKLUDO {
 	/// <returns>true - pionek wybrany prawid³owo, false - Brak mo¿liwoœci ruchu - nie ma sensu czekaæ na wybór pionka</returns>
 	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
-		plansza->stanPlanszy = MaszynaStanow::oczekiwanieNaWyborPionka;
-
 		if (!plansza->CzyMozliwyRuch())
 		{
 			cout << "Brak mozliwosci ruchu\n";
@@ -82,5 +87,24 @@ namespace CHINCZYKLUDO {
 
 		if (!powtornyRzutKostka) plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
 		return false;
+	}
+
+	int KontrolaWidoku::sprawdzCzyGraZakonczona() {
+		for (int i = 0; i < plansza->getPolaDomkowPtr()->size(); i++) {
+			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() == 4) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	void KontrolaWidoku::zakonczGre(int wygrany) {
+		std::string s_wygrany = "czerwony";
+		if (wygrany == 1) s_wygrany = "zielony";
+		if (wygrany == 2) s_wygrany == "zolty";
+		if (wygrany == 3) s_wygrany == "niebieski";
+
+
+		std::cout << "Gra zakonczona. Wygral: " << s_wygrany << std::endl;
 	}
 }

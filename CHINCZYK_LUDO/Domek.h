@@ -8,6 +8,6 @@ class Domek :
     public PoleSpecjalne
 {
 public:
-
+    Domek(int x, int y) { ustawWspolrzedne(x, y); }
 };
 
