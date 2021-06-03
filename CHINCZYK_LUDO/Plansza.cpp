@@ -277,6 +277,9 @@ bool Plansza::ruchPionka()
 		if (baza.pionkiNaPolu.empty()) continue;
 
 		if (std::find(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch) != baza.pionkiNaPolu.end()){
+			
+			if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
+
 			czyWBazie = true;
 			baza.pionkiNaPolu.erase(std::remove(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch), baza.pionkiNaPolu.end());
 		}
@@ -296,8 +299,6 @@ bool Plansza::ruchPionka()
 
 	if (czyWBazie)
 	{
-		if (ostatniRzutKostki != 1 && ostatniRzutKostki != 6) return false;
-
 		for (Pole& pole : polaPlanszy)
 		{
 			if (pole.punktWejscia == kolorAktywnegoGracza)
