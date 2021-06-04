@@ -499,6 +499,13 @@ bool Plansza::CzyMozliwyRuch()
 	return (pionkiWBazie != 4);
 }
 
+/****************************************************************************************/
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="kolor"></param>
+/// <returns></returns>
 Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 	int i = 0;
 	for (;i < polaBazy.size(); i++) {
@@ -569,6 +576,13 @@ Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 	return &polaBazy[i];
 }
 
+/****************************************************************************************/
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="kolor"></param>
+/// <returns></returns>
 int Plansza::getIdPolaStartowego(KolorGracza kolor) {
 	if (kolor == KolorGracza::czerwony) return 52;
 	if (kolor == KolorGracza::zielony) return 39;
