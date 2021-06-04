@@ -171,42 +171,56 @@ void Plansza::UstawDomki()
 	polaDomkow.push_back(w2);
 	polaDomkow.push_back(w3);
 	polaDomkow.push_back(w4);
+	
 	int offsetX;
 	int offsetY;
+
 	for (int i = 0; i < 4; i++) {
 
 		//offset do czerwonych domkow
-		if (i == 0) {
+		if (i == 0)
+		{
 			offsetX = 7;
 			offsetY = 8;
 		}
 
 		//offset do zielonych domkow
-		if (i == 1) {
+		else if (i == 1)
+		{
 			offsetX = 8;
 			offsetY = 7;
 		}
 
 		//offset do zoltych domkow
-		if (i == 2) {
+		else if (i == 2)
+		{
 			offsetX = 7;
-			offsetY = 1;
+			offsetY = 6;
 		}
 
 		//offset do niebieskich domkow
-		if (i == 3) {
-			offsetX = 1;
+		else
+		{
+			offsetX = 6;
 			offsetY = 7;
 		}
 
-		for (int j = 0; j < 6; j++) {
-
+		for (int j = 0; j < 6; j++)
+		{
 			if (i == 0) polaDomkow[i].push_back(Domek(offsetX, offsetY++));
-			if (i == 1) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
-			if (i == 2) polaDomkow[i].push_back(Domek(offsetX, offsetY++));
-			if (i == 3) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
-			
+			else if (i == 1) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
+			else if (i == 2) polaDomkow[i].push_back(Domek(offsetX, offsetY--));
+			else polaDomkow[i].push_back(Domek(offsetX--, offsetY));	
 		}
+	}
+
+	for (std::vector<Domek> wektorDomkow : polaDomkow)
+	{
+		for (Domek domek : wektorDomkow)
+		{
+			cout << domek.pozX() << " " << domek.pozY() << "\n";
+		}
+		
 	}
 }
 
