@@ -228,6 +228,9 @@ namespace CHINCZYKLUDO {
 		watekPetliGry->Start();
 	}
 
+	/// <summary>
+	/// Metoda która sprawdza iloœæ pionków na danym polu.
+	/// </summary>
 	int KontrolaWidoku::sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole) { //[ADDED]
 		//[GOOD]
 		for (int i = 0; i < pola.size(); i++) {

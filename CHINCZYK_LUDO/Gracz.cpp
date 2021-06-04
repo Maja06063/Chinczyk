@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Gracz.h"
 
+/// <summary>
+/// Ustawianie konkretnego pola na planszy, które s³u¿y jako pole specjalne dla ka¿dego pionka. Ró¿ne kolory pionków maj¹ ró¿ne pola startowe.
+/// </summary>
+
 void Gracz::ustawIdPolaStartowego() {
 	if (this->graczId == KolorGracza::czerwony) this->idPolaStartowego = 0;
 	if (this->graczId == KolorGracza::zielony) this->idPolaStartowego = 39;

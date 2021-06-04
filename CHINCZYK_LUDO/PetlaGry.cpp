@@ -88,7 +88,9 @@ namespace CHINCZYKLUDO {
 		if (!powtornyRzutKostka) plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
 		return false;
 	}
-
+	/// <summary>
+	/// Metoda która ma na celu sprawdzenie czy któryœ gracz wygra³.
+	/// </summary>
 	int KontrolaWidoku::sprawdzCzyGraZakonczona() {
 		for (int i = 0; i < plansza->getPolaDomkowPtr()->size(); i++) {
 			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() == 4) {
@@ -97,7 +99,9 @@ namespace CHINCZYKLUDO {
 		}
 		return -1;
 	}
-
+	/// <summary>
+	/// Metoda która ma na celu pokazanie który gracz wygra³.
+	/// </summary>
 	void KontrolaWidoku::zakonczGre(int wygrany) {
 		std::string s_wygrany = "czerwony";
 		if (wygrany == 1) s_wygrany = "zielony";

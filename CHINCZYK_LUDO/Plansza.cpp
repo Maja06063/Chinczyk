@@ -498,6 +498,9 @@ bool Plansza::CzyMozliwyRuch()
 
 	return (pionkiWBazie != 4);
 }
+/// <summary>
+/// Metoda która ma na celu sprawdzenie wolnych miejsc w bazach ka¿dego gracza.
+/// </summary>
 
 Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 	int i = 0;
