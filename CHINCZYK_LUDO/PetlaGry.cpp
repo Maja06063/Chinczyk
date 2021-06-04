@@ -12,8 +12,8 @@ namespace CHINCZYKLUDO {
 	/// </summary>
 	void KontrolaWidoku::PetlaGry()
 	{
-		while (1) {
-
+		while (1)
+		{
 			PetlaGryOczekiwanieNaRzut();
 
 			while(1)
@@ -89,6 +89,12 @@ namespace CHINCZYKLUDO {
 		return false;
 	}
 
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	int KontrolaWidoku::sprawdzCzyGraZakonczona() {
 		for (int i = 0; i < plansza->getPolaDomkowPtr()->size(); i++) {
 			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() == 4) {
@@ -98,12 +104,17 @@ namespace CHINCZYKLUDO {
 		return -1;
 	}
 
+	/****************************************************************************************/
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="wygrany"></param>
 	void KontrolaWidoku::zakonczGre(int wygrany) {
 		std::string s_wygrany = "czerwony";
 		if (wygrany == 1) s_wygrany = "zielony";
 		if (wygrany == 2) s_wygrany == "zolty";
 		if (wygrany == 3) s_wygrany == "niebieski";
-
 
 		std::cout << "Gra zakonczona. Wygral: " << s_wygrany << std::endl;
 	}
