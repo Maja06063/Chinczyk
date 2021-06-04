@@ -50,11 +50,14 @@ bool Plansza::ruchPionka()
 	}
 
 
-	for (int i = 0; i < polaDomkow.size(); i++) {
-		for (int j = 0; j < polaDomkow[i].size(); j++) {
+	for (int i = 0; i < polaDomkow.size(); i++)
+	{
+		for (int j = 0; j < polaDomkow[i].size(); j++)
+		{
 			if (polaDomkow[i][j].pionkiNaPolu.empty()) continue;
 
-			if (std::find(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch) != polaDomkow[i][j].pionkiNaPolu.end()) {
+			if (std::find(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch) != polaDomkow[i][j].pionkiNaPolu.end())
+			{
 				czyWDomku = true;
 				polaDomkow[i][j].pionkiNaPolu.erase(std::remove(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch), polaDomkow[i][j].pionkiNaPolu.end());
 			}
@@ -90,9 +93,12 @@ bool Plansza::ruchPionka()
 			int numer_pola = (i + ostatniRzutKostki) % polaPlanszy.size();
 
 			std::vector<Pionek>* pionki_na_tym_polu = &polaPlanszy.at(numer_pola).pionkiNaPolu;
-			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola != 26 && numer_pola != 39) {
-				for (int j = 0; j < pionki_na_tym_polu->size(); i++) {
-					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza()) {
+			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola != 26 && numer_pola != 39)
+			{
+				for (int j = 0; j < pionki_na_tym_polu->size(); i++)
+				{
+					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza())
+					{
 						Baza* wolna_baza = znajdzWolnaBaze(pionki_na_tym_polu->at(j).zwrocKolorGracza());
 						wolna_baza->pionkiNaPolu.push_back(pionki_na_tym_polu->at(j));
 						pionki_na_tym_polu->erase(pionki_na_tym_polu->begin() + j);
@@ -102,7 +108,9 @@ bool Plansza::ruchPionka()
 
 			int numer_pola2 = i + ostatniRzutKostki;
 			int pole_startowe = getIdPolaStartowego(pionekWykonujacyRuch.zwrocKolorGracza());
-			if (i <= pole_startowe - 2 && numer_pola2 > pole_startowe - 2) {
+
+			if (i <= pole_startowe - 2 && numer_pola2 > pole_startowe - 2)
+			{
 				int ile_krokow_w_domku = pole_startowe - i - 2;
 
 				int numer_gracza = 0;
@@ -131,7 +139,7 @@ bool Plansza::ruchPionka()
 			int i = 0;
 			for (; i < polaDomkow.at(numer_gracza).size(); i++)
 			{
-				cout << "Czy pole w domku jest puste" << (polaDomkow[numer_gracza][i].pionkiNaPolu.empty()) << std::endl;
+				cout << "Czy pole w domku jest puste" << (polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.empty()) << std::endl;
 				if (polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.empty()) continue; //naprawic
 
 				/*for (int j = 0; j < polaDomkow[numer_gracza].size(); j++) {
