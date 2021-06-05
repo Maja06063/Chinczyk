@@ -365,64 +365,86 @@ bool Plansza::CzyMozliwyRuch()
 Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 	int i = 0;
 	for (;i < polaBazy.size(); i++) {
-		if (kolor == KolorGracza::czerwony) {
-			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 10) {
+
+		// Sprawdzanie baz czerwonego:
+		if (kolor == KolorGracza::czerwony)
+		{
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 10)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 13) {
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 13)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 10) {
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 10)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 13) {
-				if (polaBazy[i].pionkiNaPolu.empty()) break;
-			}
-		}
-		//sprawdzanie baz zielonego
-		if (kolor == KolorGracza::zielony) {
-			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
-				if (polaBazy[i].pionkiNaPolu.empty()) break;
-			}
-			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
-				if (polaBazy[i].pionkiNaPolu.empty()) break;
-			}
-			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10) {
-				if (polaBazy[i].pionkiNaPolu.empty()) break;
-			}
-			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13) {
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 13)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
 		}
 
-		//sprawdzanie baz zoltego
-		if (kolor == KolorGracza::zolty) {
-			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+		// Sprawdzanie baz zielonego:
+		else if (kolor == KolorGracza::zielony)
+		{
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1) {
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 10)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4) {
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 13)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
 		}
 
-		//sprawdzanie baz niebieskiego
-		if (kolor == KolorGracza::niebieski) {
-			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+		// Sprawdzanie baz zoltego:
+		else if (kolor == KolorGracza::zolty) {
+			if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 1)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+			else if (polaBazy[i].pozX() == 10 && polaBazy[i].pozY() == 4)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1) {
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 1)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4) {
+			else if (polaBazy[i].pozX() == 13 && polaBazy[i].pozY() == 4)
+			{
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+		}
+
+		// Sprawdzanie baz niebieskiego:
+		else
+		{
+			if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1)
+			{
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4)
+			{
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1)
+			{
+				if (polaBazy[i].pionkiNaPolu.empty()) break;
+			}
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4)
+			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
 		}
@@ -440,8 +462,9 @@ Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 /// <param name="kolor"></param>
 /// <returns></returns>
 int Plansza::getIdPolaStartowego(KolorGracza kolor) {
+	
 	if (kolor == KolorGracza::czerwony) return 52;
-	if (kolor == KolorGracza::zielony) return 39;
-	if (kolor == KolorGracza::zolty) return 26;
-	if (kolor == KolorGracza::niebieski) return 13;
+	else if (kolor == KolorGracza::zielony) return 39;
+	else if (kolor == KolorGracza::zolty) return 26;
+	else return 13;
 }

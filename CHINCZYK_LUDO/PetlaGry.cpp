@@ -85,6 +85,8 @@ namespace CHINCZYKLUDO {
 		if (!plansza->CzyDobryPionekWybrano()) return true;
 		if (!plansza->ruchPionka()) return true;
 
+		if (plansza->ostatniRzutKostki == 6) powtornyRzutKostka = true;
+
 		if (!powtornyRzutKostka) plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
 		return false;
 	}

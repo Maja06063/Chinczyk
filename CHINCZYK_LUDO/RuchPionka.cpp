@@ -92,6 +92,7 @@ bool Plansza::ruchPionka()
 
 			int numer_pola = (i + ostatniRzutKostki) % polaPlanszy.size();
 
+			// Zbijanie i wspólne przebywanie na danym polu:
 			std::vector<Pionek>* pionki_na_tym_polu = &polaPlanszy.at(numer_pola).pionkiNaPolu;
 			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola != 26 && numer_pola != 39)
 			{
