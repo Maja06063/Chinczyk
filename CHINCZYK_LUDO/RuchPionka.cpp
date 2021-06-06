@@ -31,11 +31,12 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 	}
 
 
-	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka); //[THINK] takie rzeczy generalnie powinny byæ pointerami, a nie tworzeniem nowych obiektów
+	Pionek pionekWykonujacyRuch(kolorAktywnegoGracza, nrPionka);
 	bool czyWBazie = false;
 	bool czyWDomku = false;
 
-
+	/*-------------------------------------*/
+	// Sprawdzanie czy pionek jest w bazie:
 	for (Baza& baza : polaBazy)
 	{
 		if (baza.pionkiNaPolu.empty()) continue;
@@ -46,10 +47,12 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 
 			czyWBazie = true;
 			baza.pionkiNaPolu.erase(std::remove(baza.pionkiNaPolu.begin(), baza.pionkiNaPolu.end(), pionekWykonujacyRuch), baza.pionkiNaPolu.end());
+			break;
 		}
 	}
 
-
+	/*-------------------------------------*/
+	// Sprawdzanie czy pionek jest w domkach:
 	for (int i = 0; i < polaDomkow.size(); i++)
 	{
 		for (int j = 0; j < polaDomkow[i].size(); j++)
@@ -60,10 +63,13 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 			{
 				czyWDomku = true;
 				polaDomkow[i][j].pionkiNaPolu.erase(std::remove(polaDomkow[i][j].pionkiNaPolu.begin(), polaDomkow[i][j].pionkiNaPolu.end(), pionekWykonujacyRuch), polaDomkow[i][j].pionkiNaPolu.end());
+				break;
 			}
 		}
 	}
 
+	/*-------------------------------------*/
+	// Wtjœcie z bazy:
 	if (czyWBazie)
 	{
 		for (Pole& pole : polaPlanszy)
@@ -75,8 +81,11 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 			}
 		}
 	}
+
 	else {
 
+		/*-------------------------------------*/
+		// Ruch po zwyk³ej czêœci planszy:
 		if (!czyWDomku) {
 			int i;
 			for (i = 0; i < polaPlanszy.size(); i++)
@@ -113,12 +122,9 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 
 			if (i <= pole_startowe - 2 && numer_pola2 > pole_startowe - 2)
 			{
-				int ile_krokow_w_domku = pole_startowe - i - 2;
+				int ile_krokow_w_domku = pole_startowe - i - 3;
 
-				int numer_gracza = 0;
-				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zielony) numer_gracza = 1;
-				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::zolty) numer_gracza = 2;
-				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::niebieski) numer_gracza = 3;
+				int numer_gracza = (int)pionekWykonujacyRuch.zwrocKolorGracza();
 
 				polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.push_back(pionekWykonujacyRuch);
 				size_t dlugosc = polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.size();
@@ -126,41 +132,32 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 				return true;
 			}
 
-
-			polaPlanszy.at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch);//[ADDED]
+			polaPlanszy.at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch);
 			std::cout << "Ruch pionka na numer pola: " << numer_pola << std::endl;
 		}
 
+		/*-------------------------------------*/
+		// Ruch po domkach koñcowych:
 		else {
 
 			int numer_gracza = (int)pionekWykonujacyRuch.zwrocKolorGracza();
 
+			std::vector<Domek>& polaDomkowGracza = polaDomkow.at(numer_gracza);
 			int i = 0;
-			for (; i < polaDomkow.at(numer_gracza).size(); i++)
+			for (; i < polaDomkowGracza.size() - 1; i++)
 			{
-				cout << "Czy pole w domku jest puste" << (polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.empty()) << std::endl;
-				if (polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.empty()) continue;
 
-				if (std::find(polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.begin(), polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.end(), pionekWykonujacyRuch)
-					!= polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.end())
-				{
-					polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.erase(
-						std::remove(polaDomkow[numer_gracza][i].pionkiNaPolu.begin(), polaDomkow[numer_gracza][i].pionkiNaPolu.end(), pionekWykonujacyRuch),
-						polaDomkow[numer_gracza][i].pionkiNaPolu.end());
-					break;
-				}
+				if (polaDomkowGracza.at(i).pionkiNaPolu.empty()) continue;
+
+				auto iter = std::find(polaDomkowGracza.at(i).pionkiNaPolu.begin(), polaDomkowGracza.at(i).pionkiNaPolu.end(), pionekWykonujacyRuch);
+				polaDomkowGracza.at(i).pionkiNaPolu.erase(iter);
+
+				int nrNowegoPola = i + ostatniRzutKostki;
+				if (nrNowegoPola > 5) nrNowegoPola = 5;
+
+				polaDomkowGracza.at(nrNowegoPola).pionkiNaPolu.push_back(pionekWykonujacyRuch);
+				break;
 			}
-
-			if (i >= 5) {
-				
-				polaDomkow.at(numer_gracza).at(i).pionkiNaPolu.push_back(pionekWykonujacyRuch);
-				return false;
-			}
-
-			int numer_pola = (i + ostatniRzutKostki);
-			if (numer_pola > 5) numer_pola = i;
-			polaDomkow.at(numer_gracza).at(numer_pola).pionkiNaPolu.push_back(pionekWykonujacyRuch);
-
 		}
 
 	}
