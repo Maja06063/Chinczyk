@@ -372,7 +372,7 @@ bool Plansza::CzyMozliwyRuch()
 /// </summary>
 /// <param name="kolor"></param>
 /// <returns></returns>
-Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
+Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {
 	int i = 0;
 	for (; i < polaBazy.size(); i++) {
 
@@ -445,11 +445,11 @@ Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 4)
+			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 4)
 			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
-			else if (polaBazy[i].pozX() == 1 && polaBazy[i].pozY() == 1)
+			else if (polaBazy[i].pozX() == 4 && polaBazy[i].pozY() == 1)
 			{
 				if (polaBazy[i].pionkiNaPolu.empty()) break;
 			}
