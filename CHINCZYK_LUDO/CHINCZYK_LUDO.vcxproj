@@ -160,6 +160,7 @@
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Pole.cpp" />
     <ClCompile Include="PoleSpecjalne.cpp" />
+    <ClCompile Include="RuchPionka.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

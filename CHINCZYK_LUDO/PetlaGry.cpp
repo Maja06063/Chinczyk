@@ -8,12 +8,12 @@ using namespace System::Runtime::InteropServices;
 namespace CHINCZYKLUDO {
 
 	/// <summary>
-	/// G³ówna pêtla gry dzia³aj¹ca na osobnym w¹tku - wykonuje siê równolegle z obs³ug¹ planszy.
+	/// GÅ‚Ã³wna pÄ™tla gry dziaÅ‚ajÄ…ca na osobnym wÄ…tku - wykonuje siÄ™ rÃ³wnolegle z obsÅ‚ugÄ… planszy.
 	/// </summary>
 	void KontrolaWidoku::PetlaGry()
 	{
-		while (1) {
-
+		while (1)
+		{
 			PetlaGryOczekiwanieNaRzut();
 
 			while(1)
@@ -34,7 +34,7 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na rzut kostk¹ przez odpowiedniego gracza.
+	/// Fragment pÄ™tli gry wystÄ™pujÄ…cy podczas oczekiwania na rzut kostkÄ… przez odpowiedniego gracza.
 	/// </summary>
 	void KontrolaWidoku::PetlaGryOczekiwanieNaRzut() //[CHANGED]
 	{
@@ -52,9 +52,9 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// Fragment pêtli gry wystêpuj¹cy podczas oczekiwania na wybrania pionka wykonuj¹cego ruch przez gracza.
+	/// Fragment pÄ™tli gry wystÄ™pujÄ…cy podczas oczekiwania na wybrania pionka wykonujÄ…cego ruch przez gracza.
 	/// </summary>
-	/// <returns>true - pionek wybrany prawid³owo, false - Brak mo¿liwoœci ruchu - nie ma sensu czekaæ na wybór pionka</returns>
+	/// <returns>true - pionek wybrany prawidÅ‚owo, false - Brak moÅ¼liwoÅ›ci ruchu - nie ma sensu czekaÄ‡ na wybÃ³r pionka</returns>
 	bool KontrolaWidoku::PetlaGryOczekiwanieNaWyborPionka()
 	{
 		if (!plansza->CzyMozliwyRuch())
@@ -74,9 +74,9 @@ namespace CHINCZYKLUDO {
 	/****************************************************************************************/
 
 	/// <summary>
-	/// Fragment pêtli gry wystêpuj¹cy podczas trwania ruchu pionka.
+	/// Fragment pÄ™tli gry wystÄ™pujÄ…cy podczas trwania ruchu pionka.
 	/// </summary>
-	/// <returns>true - Nale¿y powtórzyæ wybór pionka, false - ruch zakoñczony</returns>
+	/// <returns>true - NaleÅ¼y powtÃ³rzyÄ‡ wybÃ³r pionka, false - ruch zakoÅ„czony</returns>
 	bool KontrolaWidoku::PetlaGryTrwaRuch()
 	{
 		bool powtornyRzutKostka = false;
@@ -85,12 +85,16 @@ namespace CHINCZYKLUDO {
 		if (!plansza->CzyDobryPionekWybrano()) return true;
 		if (!plansza->ruchPionka()) return true;
 
+		if (plansza->ostatniRzutKostki == 6) powtornyRzutKostka = true;
+
 		if (!powtornyRzutKostka) plansza->kolorAktywnegoGracza = (KolorGracza)(((int)plansza->kolorAktywnegoGracza + 1) % 4);
 		return false;
 	}
+
 	/// <summary>
-	/// Metoda która ma na celu sprawdzenie czy któryœ gracz wygra³.
+	/// Metoda ktÃ³ra ma na celu sprawdzenie czy ktÃ³ryÅ› gracz wygraÅ‚.
 	/// </summary>
+
 	int KontrolaWidoku::sprawdzCzyGraZakonczona() {
 		for (int i = 0; i < plansza->getPolaDomkowPtr()->size(); i++) {
 			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() == 4) {
@@ -99,15 +103,16 @@ namespace CHINCZYKLUDO {
 		}
 		return -1;
 	}
+
 	/// <summary>
-	/// Metoda która ma na celu pokazanie który gracz wygra³.
+	/// Metoda ktÃ³ra ma na celu pokazanie ktÃ³ry gracz wygraÅ‚.
 	/// </summary>
+
 	void KontrolaWidoku::zakonczGre(int wygrany) {
 		std::string s_wygrany = "czerwony";
 		if (wygrany == 1) s_wygrany = "zielony";
 		if (wygrany == 2) s_wygrany == "zolty";
 		if (wygrany == 3) s_wygrany == "niebieski";
-
 
 		std::cout << "Gra zakonczona. Wygral: " << s_wygrany << std::endl;
 	}
