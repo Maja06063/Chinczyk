@@ -139,7 +139,6 @@
     <ClInclude Include="Plansza.h" />
     <ClInclude Include="Pole.h" />
     <ClInclude Include="PoleSpecjalne.h" />
-    <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />

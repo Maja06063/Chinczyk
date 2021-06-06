@@ -19,12 +19,15 @@ void Pole::ustawWspolrzedne(int x, int y)
 /// Powsta³a w celach debugowych.
 /// </summary>
 /// <returns>dane - tablica charów z tekstem zawieraj¹cym wspó³rzêdne po³o¿enia pola oraz nr pionka na tym polu</returns>
-char* Pole::ToString()
+string Pole::ToString()
 {
-	char dane[100];
+	string dane;
 
-	sprintf_s(dane, "\nJestem polem %dx%dy, pionek nr %d\n",
-		x, y, pionkiNaPolu.at(0).zwrocNr());
+	dane += "\nJestem polem ";
+	dane += std::to_string(x);
+	dane += std::to_string(y);
+	dane += std::to_string(pionkiNaPolu.at(0).zwrocNr());
+	
 
 	return dane;
 }

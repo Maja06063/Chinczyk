@@ -121,7 +121,7 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 				if (pionekWykonujacyRuch.zwrocKolorGracza() == KolorGracza::niebieski) numer_gracza = 3;
 
 				polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.push_back(pionekWykonujacyRuch);
-				int dlugosc = polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.size();
+				size_t dlugosc = polaDomkow[numer_gracza][ile_krokow_w_domku].pionkiNaPolu.size();
 				cout << "pole na ktore wstawiamy: " << polaDomkow[numer_gracza][ile_krokow_w_domku].pozX() << ":" << polaDomkow[numer_gracza][ile_krokow_w_domku].pozY() << std::endl;
 				return true;
 			}

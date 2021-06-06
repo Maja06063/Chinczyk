@@ -8,7 +8,7 @@ class PoleSpecjalne :
     public Pole
 {
 protected:
-
+    bool mozliwoscBicia = false;
 public:
     
     PoleSpecjalne() { ; }

@@ -9,7 +9,9 @@
 #include <ctime>
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 using std::cout;
+using std::string;
 
 #endif //PCH_H

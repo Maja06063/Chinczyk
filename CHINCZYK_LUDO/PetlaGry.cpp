@@ -111,8 +111,8 @@ namespace CHINCZYKLUDO {
 	void KontrolaWidoku::zakonczGre(int wygrany) {
 		std::string s_wygrany = "czerwony";
 		if (wygrany == 1) s_wygrany = "zielony";
-		if (wygrany == 2) s_wygrany == "zolty";
-		if (wygrany == 3) s_wygrany == "niebieski";
+		else if (wygrany == 2) s_wygrany = "zolty";
+		else s_wygrany = "niebieski";
 
 		std::cout << "Gra zakonczona. Wygral: " << s_wygrany << std::endl;
 	}

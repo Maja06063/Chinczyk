@@ -463,7 +463,7 @@ namespace CHINCZYKLUDO {
 
 		void Kontrolowa_widoku_Load(System::Object^ sender, System::EventArgs^ e);
 
-		int sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole); //[ADDED]
+		int sprawdzIloscPionkow(std::vector<Pole>& pola, std::vector<int>& ilosc_pionkow, Pole pole); 
 
 		int sprawdzCzyGraZakonczona();
 		void zakonczGre(int wygrany);
