@@ -27,9 +27,6 @@
     <ClCompile Include="..\CHINCZYK_LUDO\Pionek.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="..\CHINCZYK_LUDO\Pole.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

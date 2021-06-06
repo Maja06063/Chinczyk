@@ -158,7 +158,6 @@
   <ItemGroup>
     <ClCompile Include="..\CHINCZYK_LUDO\Kostka.cpp" />
     <ClCompile Include="..\CHINCZYK_LUDO\Pionek.cpp" />
-    <ClCompile Include="..\CHINCZYK_LUDO\Pole.cpp" />
     <ClCompile Include="ChinczykTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
