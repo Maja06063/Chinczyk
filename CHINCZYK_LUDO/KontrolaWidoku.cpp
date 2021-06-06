@@ -19,7 +19,7 @@ namespace CHINCZYKLUDO {
 	{	
 		int x = pole.pozX();
 		int y = pole.pozY();
-		cout << "Polozenie pionka: " << x << ":" << y << endl;
+		//cout << "Polozenie pionka: " << x << ":" << y << endl;
 
 		//[TODO] ustawic to w taki sposob aby dodatkowe pionki rysowaly sie w gore lub w bok zaleznie od 
 		// tego jak w danym polu pasuje lepiej

@@ -393,7 +393,7 @@ namespace CHINCZYKLUDO {
 			this->aktualnyGraczTekst->TabIndex = 20;
 			this->aktualnyGraczTekst->Text = L"label2";
 			// 
-			// Kontrolowa_widoku
+			// KontrolaWidoku
 			// 
 			this->AccessibleName = L"";
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -422,7 +422,7 @@ namespace CHINCZYKLUDO {
 			this->Controls->Add(this->Przycisk_kostka);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->MaximizeBox = false;
-			this->Name = L"Kontrolowa_widoku";
+			this->Name = L"KontrolaWidoku";
 			this->Text = L"Chiñczyk";
 			this->Load += gcnew System::EventHandler(this, &KontrolaWidoku::Kontrolowa_widoku_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->obrazek_planszy))->EndInit();

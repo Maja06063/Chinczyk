@@ -26,14 +26,14 @@ void Plansza::UstawPola()
 	UstawDomki();
 	UstawZwyklePola();
 	
-	int dlugosc1 = polaDomkow.size();
-	int dlugosc2 = polaDomkow[0].size();
-	for (int i = 0; i < dlugosc1; i++) {
+	//int dlugosc1 = polaDomkow.size();
+	//int dlugosc2 = polaDomkow[0].size();
+	/*for (int i = 0; i < dlugosc1; i++) {
 		for (int j = 0; j < dlugosc2; j++) {
 			cout << polaDomkow[i][j].pozX() << ":" << polaDomkow[i][j].pozY() << std::endl;
 		}
 
-	}
+	}*/
 }
 
 /****************************************************************************************/
@@ -214,14 +214,14 @@ void Plansza::UstawDomki()
 		}
 	}
 
-	for (std::vector<Domek> wektorDomkow : polaDomkow)
+	/*for (std::vector<Domek> wektorDomkow : polaDomkow)
 	{
 		for (Domek domek : wektorDomkow)
 		{
 			cout << domek.pozX() << " " << domek.pozY() << "\n";
 		}
 		
-	}
+	}*/
 }
 
 /****************************************************************************************/
