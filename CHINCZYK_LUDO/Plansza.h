@@ -34,7 +34,7 @@ public:
 
 	Plansza();
 
-	bool ruchPionka();
+	bool ruchPionka(bool& powtornyRzut);
 	bool CzyDobryPionekWybrano();
 	bool CzyMozliwyRuch();
 

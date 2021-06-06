@@ -12,7 +12,7 @@
 /// 0000-0000-0000-1000 - Wybrany pionek nr 4 o kolorze czerwonym.
 /// </summary>
 /// <param name="">true - Ruch wykonany, false - ruch niewykonany.</param>
-bool Plansza::ruchPionka()
+bool Plansza::ruchPionka(bool & powtornyRzut)
 {
 	//ostatniRzutKostki = 6;
 	uint16_t nr = kliknietePionki;
@@ -100,6 +100,7 @@ bool Plansza::ruchPionka()
 				{
 					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza())
 					{
+						powtornyRzut = true;
 						Baza* wolna_baza = znajdzWolnaBaze(pionki_na_tym_polu->at(j).zwrocKolorGracza());
 						wolna_baza->pionkiNaPolu.push_back(pionki_na_tym_polu->at(j));
 						pionki_na_tym_polu->erase(pionki_na_tym_polu->begin() + j);

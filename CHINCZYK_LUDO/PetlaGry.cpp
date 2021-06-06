@@ -83,7 +83,7 @@ namespace CHINCZYKLUDO {
 
 		plansza->stanPlanszy = MaszynaStanow::trwaRuch;
 		if (!plansza->CzyDobryPionekWybrano()) return true;
-		if (!plansza->ruchPionka()) return true;
+		if (!plansza->ruchPionka(powtornyRzutKostka)) return true;
 
 		if (plansza->ostatniRzutKostki == 6) powtornyRzutKostka = true;
 
