@@ -143,8 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="Baza.cpp" />
-    <ClCompile Include="Domek.cpp" />
     <ClCompile Include="Gracz.cpp" />
     <ClCompile Include="Kostka.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -159,7 +157,6 @@
     <ClCompile Include="Pionek.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Pole.cpp" />
-    <ClCompile Include="PoleSpecjalne.cpp" />
     <ClCompile Include="RuchPionka.cpp" />
   </ItemGroup>
   <ItemGroup>
