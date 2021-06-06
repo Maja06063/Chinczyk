@@ -96,7 +96,7 @@ bool Plansza::ruchPionka(bool & powtornyRzut)
 			std::vector<Pionek>* pionki_na_tym_polu = &polaPlanszy.at(numer_pola).pionkiNaPolu;
 			if (!pionki_na_tym_polu->empty() && numer_pola != 0 && numer_pola != 13 && numer_pola != 26 && numer_pola != 39)
 			{
-				for (int j = 0; j < pionki_na_tym_polu->size(); i++)
+				for (int j = 0; j < pionki_na_tym_polu->size(); j++)
 				{
 					if (pionki_na_tym_polu->at(j).zwrocKolorGracza() != pionekWykonujacyRuch.zwrocKolorGracza())
 					{
