@@ -25,7 +25,7 @@ void Plansza::UstawPola()
 	UstawBazy();
 	UstawDomki();
 	UstawZwyklePola();
-	
+
 	//int dlugosc1 = polaDomkow.size();
 	//int dlugosc2 = polaDomkow[0].size();
 	/*for (int i = 0; i < dlugosc1; i++) {
@@ -44,14 +44,14 @@ void Plansza::UstawPola()
 void Plansza::UstawZwyklePola()
 {
 	int i = 0;
-	
+
 	// Ko³o czerwonego:
 	for (; i < 5; i++)
 	{
 		Pole pole(6, 13 - i, i == 0 ? KolorGracza::czerwony : KolorGracza::brak);
 		polaPlanszy.push_back(pole);
 	}
-	
+
 	for (; i < 11; i++)
 	{
 		Pole pole(10 - i, 8);
@@ -70,11 +70,11 @@ void Plansza::UstawZwyklePola()
 		Pole pole(i - 12, 6, i == 13 ? KolorGracza::niebieski : KolorGracza::brak);
 		polaPlanszy.push_back(pole);
 	}
-	
+
 	for (; i < 24; i++)
 	{
-		Pole pole(6, 23 - i);			//mo¿liwy b³¹d-naprawione
-		polaPlanszy.push_back(pole);	//18 - (i + 6) + 11
+		Pole pole(6, 23 - i);
+		polaPlanszy.push_back(pole);
 	}
 
 	for (; i < 25; i++)
@@ -111,7 +111,7 @@ void Plansza::UstawZwyklePola()
 
 	for (; i < 50; i++)
 	{
-		Pole pole(8, i - 35);	
+		Pole pole(8, i - 35);
 		polaPlanszy.push_back(pole);
 	}
 
@@ -120,7 +120,7 @@ void Plansza::UstawZwyklePola()
 		Pole pole(57 - i, 14);
 		polaPlanszy.push_back(pole);
 	}
-	
+
 }
 
 /****************************************************************************************/
@@ -138,7 +138,7 @@ void Plansza::UstawBazy()
 		if (i == 1) offsetX += 9;
 		if (i == 2) offsetY -= 9;
 		if (i == 3) offsetX -= 9;
-		
+
 		int nr = 1;
 		for (int x : {1 + offsetX, 4 + offsetX})
 		{
@@ -153,7 +153,7 @@ void Plansza::UstawBazy()
 			}
 		}
 	}
-	
+
 }
 
 /****************************************************************************************/
@@ -171,7 +171,7 @@ void Plansza::UstawDomki()
 	polaDomkow.push_back(w2);
 	polaDomkow.push_back(w3);
 	polaDomkow.push_back(w4);
-	
+
 	int offsetX;
 	int offsetY;
 
@@ -181,13 +181,13 @@ void Plansza::UstawDomki()
 		if (i == 0)
 		{
 			offsetX = 7;
-			offsetY = 8;
+			offsetY = 13;
 		}
 
 		//offset do zielonych domkow
 		else if (i == 1)
 		{
-			offsetX = 8;
+			offsetX = 13;
 			offsetY = 7;
 		}
 
@@ -195,33 +195,40 @@ void Plansza::UstawDomki()
 		else if (i == 2)
 		{
 			offsetX = 7;
-			offsetY = 6;
+			offsetY = 1;
 		}
 
 		//offset do niebieskich domkow
 		else
 		{
-			offsetX = 6;
+			offsetX = 1;
 			offsetY = 7;
 		}
 
 		for (int j = 0; j < 6; j++)
 		{
-			if (i == 0) polaDomkow[i].push_back(Domek(offsetX, offsetY++));
-			else if (i == 1) polaDomkow[i].push_back(Domek(offsetX++, offsetY));
-			else if (i == 2) polaDomkow[i].push_back(Domek(offsetX, offsetY--));
-			else polaDomkow[i].push_back(Domek(offsetX--, offsetY));	
+			if (i == 0) {
+				polaDomkow[i].push_back(Domek(offsetX, offsetY));
+				offsetY--;
+			}
+
+			else if (i == 1) {
+				polaDomkow[i].push_back(Domek(offsetX, offsetY));
+				offsetX--;
+			}
+
+			else if (i == 2) {
+				polaDomkow[i].push_back(Domek(offsetX, offsetY));
+				offsetY++;
+			}
+
+			else
+			{
+				polaDomkow[i].push_back(Domek(offsetX, offsetY));
+				offsetX++;
+			}
 		}
 	}
-
-	/*for (std::vector<Domek> wektorDomkow : polaDomkow)
-	{
-		for (Domek domek : wektorDomkow)
-		{
-			cout << domek.pozX() << " " << domek.pozY() << "\n";
-		}
-		
-	}*/
 }
 
 /****************************************************************************************/
@@ -367,7 +374,7 @@ bool Plansza::CzyMozliwyRuch()
 /// <returns></returns>
 Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 	int i = 0;
-	for (;i < polaBazy.size(); i++) {
+	for (; i < polaBazy.size(); i++) {
 
 		// Sprawdzanie baz czerwonego:
 		if (kolor == KolorGracza::czerwony)
@@ -465,7 +472,7 @@ Baza* Plansza::znajdzWolnaBaze(KolorGracza kolor) {//[ADDED]
 /// <param name="kolor"></param>
 /// <returns></returns>
 int Plansza::getIdPolaStartowego(KolorGracza kolor) {
-	
+
 	if (kolor == KolorGracza::czerwony) return 52;
 	else if (kolor == KolorGracza::zielony) return 39;
 	else if (kolor == KolorGracza::zolty) return 26;

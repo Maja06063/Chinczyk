@@ -91,23 +91,26 @@ namespace CHINCZYKLUDO {
 		return false;
 	}
 
+	/****************************************************************************************/
+
 	/// <summary>
 	/// Metoda która ma na celu sprawdzenie czy któryś gracz wygrał.
 	/// </summary>
-
 	int KontrolaWidoku::sprawdzCzyGraZakonczona() {
+
 		for (int i = 0; i < plansza->getPolaDomkowPtr()->size(); i++) {
-			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() == 4) {
+			if (plansza->getPolaDomkowPtr()->at(i).at(5).pionkiNaPolu.size() >= 4) {
 				return i;
 			}
 		}
 		return -1;
 	}
 
+	/****************************************************************************************/
+
 	/// <summary>
 	/// Metoda która ma na celu pokazanie który gracz wygrał.
 	/// </summary>
-
 	void KontrolaWidoku::zakonczGre(int wygrany) {
 		std::string s_wygrany = "czerwony";
 		if (wygrany == 1) s_wygrany = "zielony";
