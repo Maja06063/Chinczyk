@@ -6,7 +6,7 @@
 
 #ifndef PCH_H
 #define PCH_H
-
+#include <string>
 // w tym miejscu dodaj nagłówki, które mają być wstępnie kompilowane
 
 #endif //PCH_H
