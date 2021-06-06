@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E592A421-5F67-48A9-8B82-936B40B60C8C}</ProjectGuid>
+    <ProjectGuid>{CF582DD7-858C-45DA-905B-E5EBF17EB457}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ChińczykTests</RootNamespace>
+    <RootNamespace>ChinczykTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>
@@ -156,7 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChińczykTests.cpp" />
+    <ClCompile Include="ChinczykTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
